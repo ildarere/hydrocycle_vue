@@ -36,7 +36,6 @@
     </div>
   </div>
 </nav>
-<h1>FontAwesome</h1>
   </div>
 </template>
 
