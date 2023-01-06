@@ -1,0 +1,33 @@
+/* acme-regular - latin */
+@font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: 400;
+    src:url('@/assets/fonts/SFPRODISPLAYREGULAR.OTF') /* Chrome 26+, Opera 23+, Firefox 39+ */
+  }
+
+@font-face {
+  font-family: 'ProximaNova';
+  font-style: normal;
+  font-weight: 400;
+  src:url('@/assets/fonts/ProximaNova-Regular.woff') 
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: normal;
+  font-weight: 400;
+  src:url('@/assets/fonts/Barlow-Regular.ttf') 
+}
+@font-face {
+  font-family: 'Barlow';
+  font-style: bold;
+  font-weight: 700;
+  src:url('@/assets/fonts/Barlow-Bold.ttf') 
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: bold;
+  font-weight: 700;
+  src:url('@/assets/fonts/SFPRODISPLAYBOLD.OTF') 
+}
+
