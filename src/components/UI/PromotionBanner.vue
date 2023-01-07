@@ -1,5 +1,5 @@
 !<template >
-    <div class="banner">
+    <div class="banner" role="button" @click="$router.push('/')" >
         <div class="banner-top">
             <div class="promotion-alert">акция</div>
             <div class="price-container">
