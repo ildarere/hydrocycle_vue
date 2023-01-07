@@ -22,7 +22,6 @@ export default {
 }
 .promotion-section__slider {
     grid-column: span 9;
-    z-index: -10;
 }
 .promotion {
     grid-column: span 3;
