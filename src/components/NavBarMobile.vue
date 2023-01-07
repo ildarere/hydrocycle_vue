@@ -103,6 +103,7 @@ export default {
 <style lang="scss" scoped>
 .top-nav {
   position: fixed;
+  top: 0;
 }
 .nav-buttom-line {
   overflow-x: auto;
