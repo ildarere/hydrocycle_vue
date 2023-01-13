@@ -7,7 +7,6 @@
       <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="3" class="indicator"></li>
       <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="4" class="indicator"></li>
       <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="5" class="indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="6" class="indicator"></li>
    </ol>
    <div class="carousel-inner">
       <div class="carousel-item active">
@@ -50,7 +49,7 @@ export default {
     border: 1px solid white !important;
     width: 11px !important;
     height: 11px !important;
-    margin: 0 4px 30px 4px;
+    margin: 0 4px 30px 4px !important;
 
 }
 .active {
