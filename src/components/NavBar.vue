@@ -28,29 +28,10 @@
 <nav class="navbar nav-bottom-line navbar-expand-lg navbar-expand-md navbar-light bg-light p-0">
   <div class="container-fluid p-0 w-100 h-100">
       <ul class="navbar-nav  d-flex justify-content-between w-100 align-items-center h-100">
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Квадроциклы</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Катера</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Гидроциклы</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Лодки</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Вездеходы</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Снегоходы</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Двигатели</a>
-        </li>
-        <li class="nav-item nav-bottom-line__items">
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">Запчасти</a>
+        <li class="nav-item nav-bottom-line__items"
+          v-for="(link, index) in menuLinks" :key="index"
+        >
+          <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ link }}</a>
         </li>
       </ul>
   </div>
@@ -58,11 +39,17 @@
 </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
   data () {
     return {
       shoppingСounter: 0
     }
+  },
+  computed: {
+    ...mapState({
+      menuLinks: state => state.menuLinks
+    })
   }
 }
 </script>

@@ -2,14 +2,14 @@
     <footer class=" footer bg-light">
         <div class="container pt-43">
             <div class="row h-100 d-flex align-items-start  flex-wrap mb-4">
-                <div class="col-sm-12 col-md-4 col-lg-4 d-flex flex-wrap flex-column flex-lg-row align-items-center align-items-md-start  bg-light">
+                <div class="col-12 col-lg-4 d-flex flex-wrap flex-column flex-lg-row align-items-center align-items-lg-start bg-light mb-4 mb-lg-0">
                     <p class="subscribe-text text-center text-md-start">Подпишитесь на нашу рассылку и узнавайте о акция быстрее</p>
                     <div class="d-flex flex-no-wrap">
                         <input type="text" class="form-control rounded-0 subscribe-input border-0 text-muted" placeholder="Введите ваш e-mail:">
                         <button type="button" class="btn btn-primary rounded-0 subscribe-btn text-uppercase">Отправить</button>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-2 col-lg-2 text-center text-md-start bg-light link-list">
+                <div class="col-12 col-md-4 col-lg-2 text-center text-lg-start bg-light link-list">
                     <p class="list-header m-0">Информация</p>
                     <ul class="inf-list p-0">
                         <li role="button">О компании</li>
@@ -18,7 +18,7 @@
                         <li role="button">Магазины</li>
                     </ul>
                 </div>
-                <div class="col-sm-12 col-md-3  text-center text-md-start bg-light mb-5 mb-md-0">
+                <div class="col-12 col-md-4 col-lg-3 text-center text-lg-start bg-light mb-5 mb-md-0">
                     <p class="list-header m-0">Интернет-магазин</p>
                     <ul class="inf-list p-0 ">
                         <li role="button" >Доставка и самовывоз</li>
@@ -27,7 +27,7 @@
                         <li role="button" >Новости</li>
                     </ul>
                 </div>
-                <div class="col-sm-12 col-md-2 col-lg-3 d-flex justify-content-md-between icons justify-content-center align-self-center mb-5 mb-md-0">
+                <div class="col-12 col-md-4 col-lg-3 d-flex justify-content-md-between icons justify-content-center align-self-center mb-5 mb-md-0">
                     <font-awesome-icon role="button" icon="fa-brands fa-instagram" />
                     <font-awesome-icon role="button" icon="fa-brands fa-vk" />
                     <font-awesome-icon role="button" icon="fa-brands fa-facebook" />
@@ -35,8 +35,8 @@
                 </div>
             </div>
             <div class="add-inf-container">
-                <p class="add-inf me-5">Договор оферты</p>
-                <p class="add-inf">Политика обработки персональных данных</p>
+                <p class="add-inf me-5" role="button">Договор оферты</p>
+                <p class="add-inf" role="button">Политика обработки персональных данных</p>
             </div>
         </div>
     </footer>
@@ -114,6 +114,9 @@ export default {
     & > li:first-child:hover + li:not(:first-child) {
         display: block;
     }
+}
+@media screen and (max-width: 1024px) {
+
 }
 @media screen and (max-width: 768px) {
 .inf-list {

@@ -32,57 +32,17 @@
     <div class="mobile-nav-back" v-if="show" @click.stop="hideDialog">
       <nav  class="mobile-nav">
         <ul class="nav mobile-nav-list ">
-          <li class="nav-item">
+          <li class="nav-item"
+            v-for="(link, index) in menuLinksMobile" :key="index"
+          >
               <font-awesome-icon icon="fa-solid fa-user " class="icon" @click="$router.push('/')"/>
-              <a class="nav-link p-0 " role="button" @click="$router.push('/aa')" >Войти</a>
+              <a class="nav-link p-0 " role="button" @click="$router.push('/aa')" >{{ link }}</a>
           </li>
-          <li class="nav-item">
-              <font-awesome-icon icon="fa-solid fa-user "  class="icon" @click="$router.push('/')"/>
-            <a class="nav-link p-0 " role="button" @click="$router.push('/')" >Регистрация</a>
-          </li>
-          <li class="nav-item">
-              <font-awesome-icon icon="fa-solid fa-user "  class="icon" @click="$router.push('/')"/>
-            <a class="nav-link p-0 " role="button" @click="$router.push('/')" >Магазины</a>
-          </li>
-          <li class="nav-item">
-              <font-awesome-icon icon="fa-solid fa-user "  class="icon" @click="$router.push('/')"/>
-            <a class="nav-link p-0 " role="button" @click="$router.push('/')" >Акции</a>
-          </li>
-          <li class="nav-item">
-              <font-awesome-icon icon="fa-solid fa-user "  class="icon" @click="$router.push('/')"/>
-            <a class="nav-link p-0 " role="button" @click="$router.push('/')" >Доставка и оплата</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
+          <li class="nav-item nav-bottom-line__items"
+            v-for="(link, index) in menuLinks" :key="index"
+          >
             <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Квадроциклы</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Катера</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Гидроциклы</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Лодки</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Вездеходы</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Снегоходы</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Двигатели</a>
-          </li>
-          <li class="nav-item nav-bottom-line__items">
-            <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">Запчасти</a>
+            <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ link }}</a>
           </li>
         </ul>
       </nav>
@@ -91,12 +51,19 @@
 </template>
 <script>
 import toggleMixin from '@/mixins/toggleMixin'
+import { mapState } from 'vuex'
 export default {
   mixins: [toggleMixin],
   data () {
     return {
       shoppingСounter: 0
     }
+  },
+  computed: {
+    ...mapState({
+      menuLinks: state => state.menuLinks,
+      menuLinksMobile: state => state.menuLinksMobile
+    })
   }
 }
 </script>
@@ -117,6 +84,7 @@ export default {
   left: 0;
   position: fixed;
   display: flex;
+  z-index: 1000;
 }
 .menu-enter-active,
 .menu-leave-active {
