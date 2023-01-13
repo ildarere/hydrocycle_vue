@@ -9,12 +9,12 @@
           <font-awesome-icon icon="fa-regular fa-heart " role="button" @click="$router.push('/')"/>
           <font-awesome-icon icon="fa-solid fa-user " role="button" @click="$router.push('/')"/>
           <div class="shopping-cart" role="button">
-            <font-awesome-icon icon="fa-solid fa-cart-shopping "  class="shopping-cart-icon" @click="$router.push('/')"/>
-            <div class="shopping-counter"> {{ shoppingСounter }}</div>
+            <font-awesome-icon icon="fa-solid fa-cart-shopping "  class="shopping-cart__icon" @click="$router.push('/')"/>
+            <div class="shopping-cart__counter"> {{ shoppingСounter }}</div>
           </div>
         </div>
       </div>
-      <div class="row nav-buttom-line ">
+      <div class="row nav-bottom-line ">
           <ul class="col-12 d-flex flex-nowrap bg-light justify-content-sm-center">
             <li class="nav-item">
               <a class="nav-link align-items-center pe-3 fw-bold" role="button" @click="$router.push('/')" >Магазины</a>
@@ -38,7 +38,7 @@
               <font-awesome-icon icon="fa-solid fa-user " class="icon" @click="$router.push('/')"/>
               <a class="nav-link p-0 " role="button" @click="$router.push('/aa')" >{{ link }}</a>
           </li>
-          <li class="nav-item nav-bottom-line__items"
+          <li class="nav-item "
             v-for="(link, index) in menuLinks" :key="index"
           >
             <div class="icon"></div>
@@ -73,7 +73,7 @@ export default {
   top: 0;
   z-index: 1000;
 }
-.nav-buttom-line {
+.nav-bottom-line {
   overflow-x: auto;
   white-space: nowrap;
 }
@@ -113,7 +113,7 @@ export default {
   position: relative;
   width: 30px;
 }
-.shopping-counter {
+.shopping-cart__counter {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -131,7 +131,7 @@ export default {
   font-size: 10px;
   line-height: 12px;
 }
-.shopping-cart-icon {
+.shopping-cart__icon {
   height: 22px;
 }
 .icon {

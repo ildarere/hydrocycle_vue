@@ -19,8 +19,8 @@
         <font-awesome-icon icon="fa-regular fa-heart " role="button" @click="$router.push('/')"/>
         <font-awesome-icon icon="fa-solid fa-user " role="button" @click="$router.push('/')"/>
         <div class="shopping-cart" role="button">
-          <font-awesome-icon icon="fa-solid fa-cart-shopping "  class="shopping-cart-icon" @click="$router.push('/')"/>
-          <div class="shopping-counter"> {{ shoppingСounter }}</div>
+          <font-awesome-icon icon="fa-solid fa-cart-shopping "  class="shopping-cart__icon" @click="$router.push('/')"/>
+          <div class="shopping-cart__counter"> {{ shoppingСounter }}</div>
         </div>
       </div>
   </div>
@@ -58,7 +58,7 @@ export default {
   position: relative;
   width: 30px;
 }
-.shopping-counter {
+.shopping-cart__counter {
   position: absolute;
   width: 20px;
   height: 20px;
@@ -76,7 +76,7 @@ export default {
   font-size: 10px;
   line-height: 12px;
 }
-.shopping-cart-icon {
+.shopping-cart__icon {
   height: 22px;
 }
 .icons > * {
