@@ -1,7 +1,8 @@
 <template >
   <nav-bar-vue v-if="!NavBarMobileVisible"></nav-bar-vue>
   <nav-bar-mobile-vue v-if="NavBarMobileVisible" v-model:show="navBarVisible"></nav-bar-mobile-vue>
-  <promotion-section-vue></promotion-section-vue>
+  <promotion-section-vue class="promotion-section-m"></promotion-section-vue>
+  <searching-section-vue></searching-section-vue>
   <footer-bar-vue></footer-bar-vue>
 </template>
 <script>
@@ -9,9 +10,10 @@ import FooterBarVue from '@/components/FooterBar.vue'
 import NavBarMobileVue from '@/components/NavBarMobile.vue'
 import NavBarVue from '@/components/NavBar.vue'
 import PromotionSectionVue from '@/components/PromotionSection.vue'
+import SearchingSectionVue from '@/components/SearchingSection.vue'
 export default {
   components: {
-    FooterBarVue, NavBarMobileVue, NavBarVue, PromotionSectionVue
+    FooterBarVue, NavBarMobileVue, NavBarVue, PromotionSectionVue, SearchingSectionVue
   },
   data () {
     return {
@@ -40,4 +42,7 @@ export default {
 }
 </script>
 <style lang="scss">
+.promotion-section-m {
+  margin-bottom: 80px;
+}
 </style>
