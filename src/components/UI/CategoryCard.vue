@@ -49,6 +49,9 @@ export default {
 }
 .category_left-section {
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .category_right-section {
     flex: 1;
