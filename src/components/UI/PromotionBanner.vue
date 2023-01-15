@@ -70,7 +70,7 @@ export default {
     }
 }
 .old-price {
-    font-family: Barlow;
+    font-family: 'Barlow';
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
