@@ -1,4 +1,4 @@
-export const categoriesModule = {
+export const CategoriesModule = {
   state: () => ({
     categories: [
       { id: '1', name: 'Квадроциклы', img: 'atv.png' },
