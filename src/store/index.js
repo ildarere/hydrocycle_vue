@@ -1,5 +1,7 @@
 import { createStore } from 'vuex'
-import { categoriesModule } from '@/store/categoriesModule'
+import { CategoriesModule } from '@/store/CategoriesModule'
+import { PopularProductsModule } from '@/store/PopularProductsModule'
+import { productsModule } from '@/store/ProductsModule'
 export default createStore({
   state: {
     menuLinks: ['Квадроциклы', 'Катера', 'Гидроциклы', 'Лодки', 'Вездеходы', 'Снегоходы', 'Двигатели', 'Запчасти'],
@@ -12,6 +14,8 @@ export default createStore({
   actions: {
   },
   modules: {
-    categories: categoriesModule
+    categories: CategoriesModule,
+    popularProducts: PopularProductsModule,
+    products: productsModule
   }
 })
