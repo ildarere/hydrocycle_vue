@@ -24,6 +24,8 @@
                 v-for="product of products"
                 :key="product.id"
                 :product="product"
+                :isLiked="likedProducts.includes(product.id) ? true : false"
+                @likeToggle="$emit('likeToggle', product.id)"
               ></product-card>
             </div>
           </div>
@@ -33,6 +35,7 @@
                 v-for="product of products"
                 :key="product.id"
                 :product="product"
+                :isLiked="likedProducts.includes(product.id) ? true : false"
               ></product-card>
             </div>
           </div>
@@ -63,6 +66,9 @@ export default {
     products: {
       type: Array,
       required: true
+    },
+    likedProducts: {
+      type: Array
     }
   },
   created () {

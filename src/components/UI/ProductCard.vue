@@ -1,6 +1,10 @@
 <template >
     <div class="product-card">
-        <button class="fav-button"><font-awesome-icon icon="fa-regular fa-heart " role="button" class="fav-product_like-icon"/></button>
+        <div class="sale" v-if="product.isSale">sale</div>
+        <button class="fav-button" @click="$emit('likeToggle', product.id)">
+            <font-awesome-icon icon="fa-solid fa-heart " role="button" class="fav-product_like-icon" v-if="isLiked"/>
+            <font-awesome-icon icon="fa-regular fa-heart " role="button" class="fav-product_unlike-icon" v-else/>
+        </button>
         <img :src="require(`@/assets/products/${product.img}`)" alt="" class="product-card_img">
         <p class="product-card_name">{{ product.name }}</p>
         <p class="product-card_price" v-if="product.count > 0">{{ product.price }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></p>
@@ -20,11 +24,34 @@ export default {
     product: {
       type: Object,
       required: true
+    },
+    isLiked: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   }
 }
 </script>
 <style lang="scss" scoped>
+.sale {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 65px;
+    height: 25px;
+    background: #1C62CD;
+    font-family: 'SF Pro Display';
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 14px;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: white;
+}
 .none-product {
     font-family: 'SF Pro Display';
     font-size: 18px;
@@ -70,6 +97,10 @@ export default {
     margin-bottom: 15px;
 }
 .fav-product_like-icon {
+    height: 20px;
+    color: #1C62CD;
+}
+.fav-product_unlike-icon {
     height: 20px;
 }
 .product-card_img {

@@ -10,6 +10,8 @@
     :categories="popularCategories"
     @update="updateProducts"
     :products="pageProducts"
+    :likedProducts="getLikedProducts"
+    @likeToggle="toggleLikedProducts"
   ></popular-products-section-vue>
   <footer-bar-vue></footer-bar-vue>
 </template>
@@ -21,7 +23,7 @@ import PromotionSectionVue from '@/components/PromotionSection.vue'
 import SearchingSectionVue from '@/components/SearchingSection.vue'
 import CetegoriesSectionVue from '@/components/CetegoriesSection.vue'
 import PopularProductsSectionVue from '@/components/PopularProductsSection.vue'
-import { mapState, mapGetters, mapMutations } from 'vuex'
+import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   components: {
     FooterBarVue, NavBarMobileVue, NavBarVue, PromotionSectionVue, SearchingSectionVue, CetegoriesSectionVue, PopularProductsSectionVue
@@ -45,7 +47,10 @@ export default {
   },
   methods: {
     ...mapMutations({
-      setPageProducts: 'products/setPageProducts'
+      setPageProducts: 'products/setPageProducts',
+      toggleLikedProducts: 'user/toggleLikedProducts'
+    }),
+    ...mapActions({
     }),
     handleResize () {
       this.window.width = window.innerWidth
@@ -65,10 +70,12 @@ export default {
     ...mapState({
       categories: state => state.categories.categories,
       popularCategories: state => state.popularProducts.categories,
-      pageProducts: state => state.products.pageProducts
+      pageProducts: state => state.products.pageProducts,
+      user: state => state.user.User
     }),
     ...mapGetters({
-      getProductById: 'products/getProductById'
+      getProductById: 'products/getProductById',
+      getLikedProducts: 'user/getLikedProducts'
     })
   }
 }
