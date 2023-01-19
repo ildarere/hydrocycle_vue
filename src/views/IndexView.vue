@@ -13,6 +13,7 @@
     :likedProducts="getLikedProducts"
     @likeToggle="toggleLikedProducts"
   ></popular-products-section-vue>
+  <promotion-banner-sale></promotion-banner-sale>
   <footer-bar-vue></footer-bar-vue>
 </template>
 <script>
@@ -23,10 +24,11 @@ import PromotionSectionVue from '@/components/PromotionSection.vue'
 import SearchingSectionVue from '@/components/SearchingSection.vue'
 import CetegoriesSectionVue from '@/components/CetegoriesSection.vue'
 import PopularProductsSectionVue from '@/components/PopularProductsSection.vue'
+import PromotionBannerSale from '@/components/UI/PromotionBannerSale.vue'
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   components: {
-    FooterBarVue, NavBarMobileVue, NavBarVue, PromotionSectionVue, SearchingSectionVue, CetegoriesSectionVue, PopularProductsSectionVue
+    FooterBarVue, NavBarMobileVue, NavBarVue, PromotionSectionVue, SearchingSectionVue, CetegoriesSectionVue, PopularProductsSectionVue, PromotionBannerSale
   },
   data () {
     return {

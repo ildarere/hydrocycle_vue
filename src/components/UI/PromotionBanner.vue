@@ -20,7 +20,7 @@
 export default {
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .banner {
     height: 400px;
     width: 265px;
