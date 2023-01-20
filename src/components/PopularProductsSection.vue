@@ -16,10 +16,11 @@
       <ol class="carousel-indicators">
           <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="0" class="active indicator"></li>
           <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="1" class="indicator"></li>
+          <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="3" class="indicator"></li>
       </ol>
       <div class="carousel-inner">
-          <div class="carousel-item active  ">
-            <div class="d-block d-flex product-container" alt="Slide 1">
+          <div class="carousel-item active" v-if="!isMobile">
+            <div class=" d-flex product-container " alt="">
               <product-card
                 v-for="product of products"
                 :key="product.id"
@@ -29,8 +30,8 @@
               ></product-card>
             </div>
           </div>
-          <div class="carousel-item">
-            <div class="d-block d-flex product-container" alt="Slide 2">
+          <div class="carousel-item " v-if="!isMobile">
+            <div class="d-flex product-container " alt="" >
               <product-card
                 v-for="product of products"
                 :key="product.id"
@@ -39,15 +40,27 @@
               ></product-card>
             </div>
           </div>
+          <div class="carousel-item align-self-center"
+                v-else
+                v-for="(product, index) in products"
+                :class="{active: index === 0}"
+                :key="product.id">
+            <div class="d-block d-flex product-container" alt="" >
+              <product-card
+                :product="product"
+                :isLiked="likedProducts.includes(product.id) ? true : false"
+              ></product-card>
+            </div>
+          </div>
       </div>
-      <a class="carousel-control-prev " href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon " aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-      </a>
-      <a class="carousel-control-next carousel-control" href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-      </a>
+        <a class="carousel-control-prev " href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon " aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a class="carousel-control-next carousel-control" href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
       </div>
       <div class="show-more" role="button">Показать еще</div>
     </div>
@@ -69,6 +82,10 @@ export default {
     },
     likedProducts: {
       type: Array
+    },
+    isMobile: {
+      type: Boolean,
+      required: true
     }
   },
   created () {
@@ -92,6 +109,9 @@ export default {
   align-items: center;
   margin: 0 auto;
 }
+.carousel-inner {
+  overflow-x: auto;
+}
 .carousel {
   margin-bottom: 35px;
 }
@@ -113,19 +133,31 @@ export default {
 .product-container {
   gap: 30px;
 }
-.carousel-control-next,
-.carousel-control-prev {
-  filter: invert(100%);
-  width: 30px;
-}
 .carousel-control-next {
   right: -40px;
 }
 .carousel-control-prev {
   left: -40px;
 }
+.carousel-control-next,
+.carousel-control-prev {
+  filter: invert(100%);
+  width: 30px;
+}
+
 .carousel-indicators {
-  display: none;
+  bottom: -60px !important;
+  & .indicator {
+    background: #C4C4C4 !important;
+    border-radius: 50% !important;
+    height: 14px !important;
+    width: 14px !important;
+    border: 0;
+    display: none;
+  }
+ & .active {
+  background: #1C62CD !important;
+ }
 }
 .navbar {
   height: 30px;
@@ -154,5 +186,35 @@ export default {
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
+}
+@media screen and (max-width: 1024px) {
+.carousel {
+  padding: 0 40px;
+}
+.carousel-control-next {
+  right: 0;
+}
+.carousel-control-prev {
+  left: 0;
+}
+}
+@media screen and (max-width: 768px) {
+  .carousel {
+    margin-bottom: 75px;
+    padding: 0;
+  }
+  .product-container {
+    justify-content: center !important;
+  }
+  .carousel-indicators {
+    & .indicator {
+      display: block;
+    }
+  }
+.carousel-control-next,
+.carousel-control-prev {
+  display: none;
+}
+
 }
 </style>

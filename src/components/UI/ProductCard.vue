@@ -69,6 +69,7 @@ export default {
     letter-spacing: 0em;
     color: #1C62CD;
     text-decoration: underline;
+    white-space: nowrap;
 }
 .product-card {
     width: 270px;

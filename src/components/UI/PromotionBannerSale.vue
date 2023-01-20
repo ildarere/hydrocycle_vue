@@ -76,8 +76,6 @@ export default {
     }
 }
 @media screen and (max-width: 768px) {
-    .banner {
-    }
     .banner_text {
         font-size: 18px;
         line-height: 18px;
