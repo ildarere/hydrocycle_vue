@@ -1,6 +1,5 @@
 import { createStore } from 'vuex'
 import { CategoriesModule } from '@/store/CategoriesModule'
-import { PopularProductsModule } from '@/store/PopularProductsModule'
 import { productsModule } from '@/store/ProductsModule'
 import { UserModule } from '@/store/UserModule'
 export default createStore({
@@ -15,7 +14,6 @@ export default createStore({
   },
   modules: {
     categories: CategoriesModule,
-    popularProducts: PopularProductsModule,
     products: productsModule,
     user: UserModule
   }
