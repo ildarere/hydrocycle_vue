@@ -1,4 +1,5 @@
 <template>
+  <div class="margin-top"></div>
   <nav class=" w-100 top-nav container">
       <div class=" nav-top-line row" >
         <div class=" col-3 text-center">
@@ -36,13 +37,13 @@
             v-for="(link, index) in menuLinksMobile" :key="index"
           >
               <font-awesome-icon icon="fa-solid fa-user " class="icon" @click="$router.push('/')"/>
-              <a class="nav-link p-0 " role="button" @click="$router.push('/aa')" >{{ link }}</a>
+              <a class="nav-link p-0 " role="button" @click="$router.push('/')" >{{ link }}</a>
           </li>
           <li class="nav-item "
-            v-for="(link, index) in menuLinks" :key="index"
+            v-for="category in categories" :key="category.id"
           >
             <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ link }}</a>
+            <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ category.name }}</a>
           </li>
         </ul>
       </nav>
@@ -54,14 +55,18 @@ import toggleMixin from '@/mixins/toggleMixin'
 import { mapState } from 'vuex'
 export default {
   mixins: [toggleMixin],
-  data () {
-    return {
-      shoppingСounter: 0
+  props: {
+    categories: {
+      type: Array,
+      required: true
+    },
+    shoppingСounter: {
+      type: Number,
+      default: 0
     }
   },
   computed: {
     ...mapState({
-      menuLinks: state => state.menuLinks,
       menuLinksMobile: state => state.menuLinksMobile
     })
   }
@@ -72,6 +77,9 @@ export default {
   position: fixed;
   top: 0;
   z-index: 1000;
+}
+.margin-top {
+  margin-bottom: 145px;
 }
 .nav-bottom-line {
   overflow-x: auto;

@@ -29,9 +29,9 @@
   <div class="container-fluid p-0 w-100 h-100">
       <ul class="navbar-nav  d-flex justify-content-between w-100 align-items-center h-100">
         <li class="nav-item nav-bottom-line__items"
-          v-for="(link, index) in menuLinks" :key="index"
+          v-for="category in categories" :key="category.id"
         >
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ link }}</a>
+          <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ category.name }}</a>
         </li>
       </ul>
   </div>
@@ -39,17 +39,16 @@
 </div>
 </template>
 <script>
-import { mapState } from 'vuex'
 export default {
-  data () {
-    return {
-      shoppingСounter: 0
+  props: {
+    categories: {
+      type: Array,
+      required: true
+    },
+    shoppingСounter: {
+      type: Number,
+      default: 0
     }
-  },
-  computed: {
-    ...mapState({
-      menuLinks: state => state.menuLinks
-    })
   }
 }
 </script>
@@ -100,6 +99,7 @@ export default {
 .container  {
     max-width: 1171px !important;
     padding: 0;
+    margin-bottom: 80px;
 }
 .nav-bottom-line__items {
   position: relative !important;

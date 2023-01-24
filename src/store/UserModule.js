@@ -5,16 +5,19 @@ export const UserModule = {
       name: '',
       mail: '',
       likedProducts: ['1'],
-      shopingcart: []
+      shoppingCart: ['1']
     }
   }),
   getters: {
-    getLikedProducts (state) {
+    getLikedProducts: (state) => {
       return state.User.likedProducts
+    },
+    getShoppingCartCounter: (state) => {
+      return state.User.shoppingCart.length
     }
   },
   mutations: {
-    toggleLikedProducts (state, id) {
+    toggleLikedProducts: (state, id) => {
       state.User.likedProducts.includes(id) ? state.User.likedProducts.splice(state.User.likedProducts.findIndex(el => el === id), 1) : state.User.likedProducts.push(id)
     }
   },

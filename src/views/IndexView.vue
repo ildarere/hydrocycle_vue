@@ -1,13 +1,22 @@
 <template >
-  <nav-bar-vue v-if="!NavBarMobileVisible"></nav-bar-vue>
-  <nav-bar-mobile-vue v-if="NavBarMobileVisible" v-model:show="navBarVisible"></nav-bar-mobile-vue>
-  <promotion-section-vue class="promotion-section-m"></promotion-section-vue>
+  <nav-bar-vue
+    v-if="!NavBarMobileVisible"
+    :categories="getLayoutCategories"
+    :shoppingСounter="getShoppingCartCounter"
+  ></nav-bar-vue>
+  <nav-bar-mobile-vue
+    v-if="NavBarMobileVisible"
+    v-model:show="navBarVisible"
+    :categories="getLayoutCategories"
+    :shoppingСounter="getShoppingCartCounter"
+  ></nav-bar-mobile-vue>
+  <promotion-section-vue ></promotion-section-vue>
   <searching-section-vue></searching-section-vue>
   <cetegories-section-vue
-    :categories="categories"
+    :categories="getMainCategories"
   ></cetegories-section-vue>
   <popular-products-section-vue
-    :categories="popularCategories"
+    :categories="getCategoriesSubMain"
     @update="updateProducts"
     :products="pageProducts"
     :likedProducts="getLikedProducts"
@@ -45,6 +54,7 @@ export default {
   created () {
     window.addEventListener('resize', this.handleResize)
     this.handleResize()
+    console.log()
   },
   unmounted () {
     window.removeEventListener('resize', this.handleResize)
@@ -63,12 +73,8 @@ export default {
       this.window.width <= 768 ? this.isMobile = true : this.isMobile = false
     },
     updateProducts (categoryId) {
-      const productsId = this.popularCategories.find(category => category.id === categoryId).products
-      const products = []
-      for (const id of productsId) {
-        products.push(this.getProductById(id))
-      }
-      this.setPageProducts(products)
+      console.log(this.getPopularProductsInCategory(categoryId, 4))
+      this.setPageProducts(this.getPopularProductsInCategory(categoryId, 4))
     }
   },
   computed: {
@@ -80,13 +86,16 @@ export default {
     }),
     ...mapGetters({
       getProductById: 'products/getProductById',
-      getLikedProducts: 'user/getLikedProducts'
+      getPopularProductsInCategory: 'products/getPopularProductsInCategory',
+      getLikedProducts: 'user/getLikedProducts',
+      getShoppingCartCounter: 'user/getShoppingCartCounter',
+      getMainCategories: 'categories/getMainCategories',
+      getCategoriesSubMain: 'categories/getCategoriesSubMain',
+      getLayoutCategories: 'categories/getLayoutCategories',
+      getLayoutCategoriesMobile: 'categories/getLayoutCategoriesMobile'
     })
   }
 }
 </script>
 <style lang="scss">
-.promotion-section-m {
-  margin-bottom: 80px;
-}
 </style>

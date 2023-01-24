@@ -89,7 +89,7 @@ export default {
     }
   },
   created () {
-    this.$emit('update', '1')
+    this.$emit('update', '7')
   }
 }
 </script>
@@ -186,6 +186,7 @@ export default {
   font-weight: 500;
   line-height: 18px;
   letter-spacing: 0em;
+  text-transform: lowercase;
 }
 @media screen and (max-width: 1024px) {
 .carousel {

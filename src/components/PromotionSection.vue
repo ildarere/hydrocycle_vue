@@ -18,7 +18,7 @@ export default {
     display: grid;
     grid-template-columns: repeat(12, 1fr) ;
     gap: 40px;
-    margin-top: 80px;
+    margin-bottom: 80px;
 }
 .promotion-section__slider {
     grid-column: span 9;
@@ -28,12 +28,10 @@ export default {
 }
 @media screen and (max-width: 1024px) {
     .promotion-section {
-    margin-top: 145px;
     gap: 0;
 }
 .promotion-section__slider {
     grid-column: span 12;
-    margin-bottom: 40px;
 }
 .promotion {
     grid-column: 5 / span 3;
