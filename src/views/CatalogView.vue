@@ -22,7 +22,7 @@ export default {
     this.category = this.getCategoryById(this.$route.query.category)
   },
   watch: {
-    $route (to, from) {
+    $route () {
       this.category = this.getCategoryById(this.$route.query.category)
     }
   },

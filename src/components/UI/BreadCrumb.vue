@@ -4,6 +4,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="#" @click="$router.push(`/`)">Главная</a></li>
         <li class="breadcrumb-item"><a href="#" @click.prevent="$router.push({path:`/catalog/${category.nameEn}`, query: {category: category.id}})">{{ category.name }}</a></li>
+        <li class="breadcrumb-item" v-if="product"><a href="#" >{{ product.name }}</a></li>
     </ol>
     </nav>
 </div>
@@ -14,6 +15,10 @@ export default {
     category: {
       type: Object,
       required: true
+    },
+    product: {
+      type: Object,
+      required: false
     }
   }
 }
