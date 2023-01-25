@@ -43,7 +43,7 @@
             v-for="category in categories" :key="category.id"
           >
             <div class="icon"></div>
-            <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ category.name }}</a>
+            <a class="nav-link p-0" href="#" @click="$router.push(`/catalog`)">{{ category.name }}</a>
           </li>
         </ul>
       </nav>

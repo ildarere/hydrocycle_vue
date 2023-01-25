@@ -31,7 +31,7 @@
         <li class="nav-item nav-bottom-line__items"
           v-for="category in categories" :key="category.id"
         >
-          <a class="nav-link p-0" href="#" @click="$router.push('/')">{{ category.name }}</a>
+          <a class="nav-link p-0" href="#" @click.prevent="$router.push({path:`/catalog/${category.nameEn}`, query: {category: category.id}})">{{ category.name }}</a>
         </li>
       </ul>
   </div>

@@ -1,6 +1,6 @@
 <template >
   <layout-page-vue>
-    <promotion-section-vue ></promotion-section-vue>
+    <promotion-section-vue></promotion-section-vue>
     <searching-section-vue></searching-section-vue>
     <cetegories-section-vue
       :categories="getMainCategories"
