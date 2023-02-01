@@ -1,23 +1,26 @@
-!<template >
+<template >
     <div class="banner" role="button" @click="$router.push('/')" >
         <div class="banner-top">
             <div class="promotion-alert">акция</div>
             <div class="price-container">
-                <div class="new-price">190 000 <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble" /></div>
-                <div class="old-price">225 000 <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></div>
+                <div class="new-price">{{ product.finalPrice.toLocaleString() }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble" /></div>
+                <div class="old-price">{{ product.price.toLocaleString() }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></div>
             </div>
         </div>
         <div class="banner-center">
-            <img src="@/assets/promotion/motor.png" alt="motor" class="product-img">
-            <p class="product-name">Лодочный мотор Suzuki DF9.9BRS</p>
+            <img :src="require(`@/assets/products/${product.img}`)" :alt="product.name" class="product-img">
+            <p class="product-name">{{ product.name }}</p>
         </div>
         <div class="banner-bottom">
-            <p class="promotion-date">Акция действует до <span>31.08.2020</span></p>
+            <p class="promotion-date">Акция действует до <span>{{ product.saleEndDate.toLocaleDateString() }}</span></p>
         </div>
     </div>
 </template>
 <script>
 export default {
+  props: {
+    product: Object
+  }
 }
 </script>
 <style lang="scss" scoped>

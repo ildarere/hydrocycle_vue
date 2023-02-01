@@ -16,13 +16,13 @@
       <ol class="carousel-indicators">
           <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="0" class="active indicator"></li>
           <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="1" class="indicator"></li>
-          <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="3" class="indicator"></li>
+          <li data-bs-target="#carouselWithIndicatorsProducts" data-bs-slide-to="2" class="indicator"></li>
       </ol>
       <div class="carousel-inner">
           <div class="carousel-item active" v-if="!isMobile">
             <div class=" d-flex product-container " alt="">
               <product-card
-                v-for="product of products"
+                v-for="product of productsAdapt"
                 :key="product.id"
                 :product="product"
                 :isLiked="likedProducts.includes(product.id) ? true : false"
@@ -33,7 +33,7 @@
           <div class="carousel-item " v-if="!isMobile">
             <div class="d-flex product-container " alt="" >
               <product-card
-                v-for="product of products"
+                v-for="product of productsAdapt"
                 :key="product.id"
                 :product="product"
                 :isLiked="likedProducts.includes(product.id) ? true : false"
@@ -42,13 +42,14 @@
           </div>
           <div class="carousel-item align-self-center"
                 v-else
-                v-for="(product, index) in products"
+                v-for="(product, index) in productsAdapt"
                 :class="{active: index === 0}"
                 :key="product.id">
             <div class="d-block d-flex product-container" alt="" >
               <product-card
                 :product="product"
                 :isLiked="likedProducts.includes(product.id) ? true : false"
+                @likeToggle="$emit('likeToggle', product.id)"
               ></product-card>
             </div>
           </div>
@@ -68,6 +69,11 @@
 <script>
 import ProductCard from '@/components/UI/ProductCard.vue'
 export default {
+  data () {
+    return {
+      productsAdapt: []
+    }
+  },
   components: {
     ProductCard
   },
@@ -90,6 +96,14 @@ export default {
   },
   created () {
     this.$emit('update', '7')
+    this.$watch('products', () => {
+      this.isMobile ? this.productsAdapt = this.products.slice(0, 3) : this.productsAdapt = this.products.slice(0, 4)
+    })
+  },
+  mounted () {
+    this.$watch('isMobile', () => {
+      this.isMobile ? this.productsAdapt = this.products.slice(0, 3) : this.productsAdapt = this.products.slice(0, 4)
+    })
   }
 }
 </script>
@@ -111,6 +125,10 @@ export default {
 }
 .carousel-inner {
   overflow-x: auto;
+}
+.carousel-inner::-webkit-scrollbar {
+  height: 0;
+  width: 0;
 }
 .carousel {
   margin-bottom: 35px;
@@ -199,7 +217,7 @@ export default {
   left: 0;
 }
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 767px) {
   .carousel {
     margin-bottom: 75px;
     padding: 0;

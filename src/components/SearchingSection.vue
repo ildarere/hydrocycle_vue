@@ -1,4 +1,4 @@
-!<template >
+<template >
     <div class="container">
       <div class="sw-container" @click="setPlaceholder">
         <input type="radio" name="radio" id="searching-switcher1"  checked="checked" value="Введите номер"/>

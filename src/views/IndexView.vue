@@ -1,6 +1,7 @@
 <template >
   <layout-page-vue>
-    <promotion-section-vue></promotion-section-vue>
+    <promotion-section-vue
+      :product="getSaleProduct"></promotion-section-vue>
     <searching-section-vue></searching-section-vue>
     <cetegories-section-vue
       :categories="getMainCategories"
@@ -13,7 +14,8 @@
       @likeToggle="toggleLikedProducts"
       :isMobile="isMobile"
     ></popular-products-section-vue>
-    <promotion-banner-sale></promotion-banner-sale>
+    <promotion-banner-sale
+    :sale="getSale"></promotion-banner-sale>
   </layout-page-vue>
 </template>
 <script>
@@ -36,10 +38,14 @@ export default {
       toggleLikedProducts: 'user/toggleLikedProducts'
     }),
     ...mapActions({
+      updateInformation: 'products/update'
     }),
     updateProducts (categoryId) {
       this.setPageProducts(this.getPopularProductsInCategory(categoryId, 4))
     }
+  },
+  created () {
+    this.updateInformation()
   },
   computed: {
     ...mapState({
@@ -49,11 +55,14 @@ export default {
       user: state => state.user.User
     }),
     ...mapGetters({
+      getProducts: 'products/getProducts',
+      getSaleProduct: 'products/getSaleProduct',
       getProductById: 'products/getProductById',
       getPopularProductsInCategory: 'products/getPopularProductsInCategory',
       getLikedProducts: 'user/getLikedProducts',
       getMainCategories: 'categories/getMainCategories',
-      getCategoriesSubMain: 'categories/getCategoriesSubMain'
+      getCategoriesSubMain: 'categories/getCategoriesSubMain',
+      getSale: 'sales/getSale'
     })
   }
 }

@@ -21,7 +21,7 @@ export default {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
       this.window.width <= 1024 ? this.NavBarMobileVisible = true : this.NavBarMobileVisible = false
-      this.window.width <= 768 ? this.isMobile = true : this.isMobile = false
+      this.window.width < 768 ? this.isMobile = true : this.isMobile = false
     }
   }
 }

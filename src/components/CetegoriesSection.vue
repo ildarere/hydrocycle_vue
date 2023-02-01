@@ -4,6 +4,7 @@
           class="category-card"
           v-for="category in categories" :key="category.id"
           :category="category"
+          @click.prevent="$router.push({path:`/catalog/${category.nameEn}`, query: {category: category.id}})"
           >
         </category-card-vue>
     </div>

@@ -5,9 +5,9 @@
             <font-awesome-icon icon="fa-solid fa-heart " role="button" class="fav-product_like-icon" v-if="isLiked"/>
             <font-awesome-icon icon="fa-regular fa-heart " role="button" class="fav-product_unlike-icon" v-else/>
         </button>
-        <img :src="require(`@/assets/products/${product.img}`)" alt="" class="product-card_img">
+        <img :src="require(`@/assets/products/${product.img}`)" :alt="product.name" class="product-card_img">
         <p class="product-card_name">{{ product.name }}</p>
-        <p class="product-card_price" v-if="product.count > 0">{{ product.price }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></p>
+        <p class="product-card_price" v-if="product.count > 0">{{ product.finalPrice.toLocaleString() }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></p>
         <div v-else>
             <p class="none-product " >нет в наличии</p>
             <p class="alert">Сообщить о поступлении</p>

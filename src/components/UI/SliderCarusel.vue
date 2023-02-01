@@ -1,4 +1,4 @@
-!<template >
+<template >
 <div id="carouselWithIndicators" class="carousel slide" data-bs-ride="carousel">
    <ol class="carousel-indicators">
       <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="0" class="active indicator"></li>

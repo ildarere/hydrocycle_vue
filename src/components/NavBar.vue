@@ -56,6 +56,7 @@ export default {
 .shopping-cart {
   position: relative;
   width: 30px;
+  margin-right: 15px;
 }
 .shopping-cart__counter {
   position: absolute;

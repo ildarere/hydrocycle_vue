@@ -11,5 +11,6 @@
 .container  {
     max-width: 1171px !important;
     padding: 0;
+    margin: 0;
 }
 </style>

@@ -1,12 +1,12 @@
 <template>
   <div class="margin-top"></div>
-  <nav class=" w-100 top-nav container">
-      <div class=" nav-top-line row" >
+  <nav class=" top-nav container m-0 p-0">
+      <div class=" nav-top-line row m-0" >
         <div class=" col-3 text-center">
           <font-awesome-icon role="button" icon="fa-solid fa-bars" class="button"  @click.stop="showDialog" />
         </div>
         <a class="col-3 col-sm-6 col-md-6 text-center p-0" role="button" @click="$router.push('/')" ><img src="@/assets/logo-mobile.svg" alt="logo"></a>
-        <div class="col-6 col-sm-3 col-md-3 text-end justify-content-end icons-headlines d-flex p-4" href="#">
+        <div class="col-6 col-sm-3 col-md-3 text-end justify-content-end icons-headlines d-flex " href="#">
           <font-awesome-icon icon="fa-regular fa-heart " role="button" @click="$router.push('/')"/>
           <font-awesome-icon icon="fa-solid fa-user " role="button" @click="$router.push('/')"/>
           <div class="shopping-cart" role="button">
@@ -15,8 +15,8 @@
           </div>
         </div>
       </div>
-      <div class="row nav-bottom-line ">
-          <ul class="col-12 d-flex flex-nowrap bg-light justify-content-sm-center">
+      <div class="row nav-bottom-line m-0 p-0">
+          <ul class="col-12 d-flex flex-nowrap bg-light justify-content-sm-center p-0">
             <li class="nav-item">
               <a class="nav-link align-items-center pe-3 fw-bold" role="button" @click="$router.push('/')" >Магазины</a>
             </li>
@@ -76,6 +76,7 @@ export default {
 .top-nav {
   position: fixed;
   top: 0;
+  width: 100vw;
   z-index: 1000;
 }
 .margin-top {
@@ -87,9 +88,8 @@ export default {
 }
 .mobile-nav-back {
   top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
+  height: 100vh;
+  width: 100vw;
   position: fixed;
   display: flex;
   z-index: 1000;
@@ -108,7 +108,7 @@ export default {
   height: 50px;
 }
 .nav-top-line {
-  height: 67px;
+  height: 68px;
   display: flex;
   align-items: center;
   background-color: white;
@@ -120,6 +120,7 @@ export default {
 .shopping-cart {
   position: relative;
   width: 30px;
+  margin-right: 10px;
 }
 .shopping-cart__counter {
   position: absolute;
@@ -155,10 +156,12 @@ export default {
   height: 100vh;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
   z-index: 100;
+  overflow-y: auto;
 }
 .mobile-nav-list {
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
 }
 .mobile-nav-list > li {
     width: 100%;

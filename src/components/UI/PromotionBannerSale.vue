@@ -3,13 +3,16 @@
         <div class="banner">
             <img src="@/assets/promotion/vehicle1.png" alt="" class="banner_img order-2 order-xl-1">
             <img src="@/assets/promotion/vehicle2.png" alt="" class="banner_img order-4 order-xl-1 me-xl-5">
-            <h3 class="banner_text order-1 order-xl-1 "><span class="banner_text_sale">Скидки <br></span> на все запчасти до <br class="d-md-none"> 70%</h3>
+            <h3 class="banner_text order-1 order-xl-1 "><span class="banner_text_sale">Скидки <br></span> на все {{ sale.name }} до <br class="d-md-none"> {{sale.discount}}%</h3>
             <div class="show-all order-3 order-xl-1" role="button">посмотреть все</div>
         </div>
     </div>
 </template>
 <script>
 export default {
+  props: {
+    sale: Object
+  }
 }
 </script>
 <style lang="scss" scoped>
