@@ -1,0 +1,158 @@
+<template >
+      <div class='containero'>
+          <div class='slider-track'></div>
+          <input type='range' :min="min" :max="max" value='100000' id='slider-1' @input='slideOne()'>
+          <input type='range' :min="min" :max="max" value='500000' id='slider-2' @input='slideTwo()'>
+      </div>
+      <div class='values'>
+        <div>
+          от <span class="price">{{ bottomPrice.toLocaleString() }}</span>
+        </div>
+        <div>
+          до <span class="price">{{ topPrice.toLocaleString() }}</span>
+        </div>
+    </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      bottomPrice: 0,
+      topPrice: 500000,
+      minGap: 0
+    }
+  },
+  props: {
+    min: {
+      type: Number
+    },
+    max: {
+      type: Number
+    }
+  },
+  methods: {
+    slideOne () {
+      const sliderOne = document.getElementById('slider-1')
+      const sliderTwo = document.getElementById('slider-2')
+      if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= this.minGap) {
+        sliderOne.value = parseInt(sliderTwo.value) - this.minGap
+      }
+      this.bottomPrice = sliderOne.value
+      this.fillColor()
+    },
+    slideTwo () {
+      const sliderOne = document.getElementById('slider-1')
+      const sliderTwo = document.getElementById('slider-2')
+      if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= this.minGap) {
+        sliderTwo.value = parseInt(sliderOne.value) + this.minGap
+      }
+      this.topPrice = sliderTwo.value
+      this.fillColor()
+    },
+    fillColor () {
+      const sliderOne = document.getElementById('slider-1')
+      const sliderTwo = document.getElementById('slider-2')
+      const sliderTrack = document.querySelector('.slider-track')
+      const sliderMaxValue = document.getElementById('slider-1').max
+      const percent1 = (sliderOne.value / sliderMaxValue) * 100
+      const percent2 = (sliderTwo.value / sliderMaxValue) * 100
+      sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`
+    }
+  },
+  mounted () {
+    this.slideOne()
+    this.slideTwo()
+  }
+}
+</script>
+<style lang="scss" scoped>
+.price {
+  font-family: 'Barlow';
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0em;
+  text-decoration: underline;
+  margin-left: 10px;
+  width: 55px;
+  display: block;
+}
+.containero{
+    position: relative;
+    width: 100%;
+    height: 50px;
+}
+input[type="range"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 1px;
+    width: 100%;
+    outline: none;
+    position: absolute;
+    margin: 25px 0 25px 0;
+    top: 0;
+    bottom: 0;
+    background-color: transparent;
+    pointer-events: none;
+}
+.slider-track{
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    margin: 25px 0 25px 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 5px;
+}
+input[type="range"]::-webkit-slider-runnable-track{
+    -webkit-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-moz-range-track{
+    -moz-appearance: none;
+    height: 5px;
+}
+input[type="range"]::-ms-track{
+    appearance: none;
+    height: 5px;
+}
+input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    background-color: #3264fe;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+input[type="range"]::-moz-range-thumb{
+    -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    background-color: #3264fe;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+input[type="range"]::-ms-thumb{
+  -webkit-appearance: none;
+    height: 8px;
+    width: 8px;
+    background-color: #3264fe;
+    cursor: pointer;
+    pointer-events: auto;
+    border-radius: 50%;
+}
+.values{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    & div{
+      display: flex;
+      align-items: center;
+    }
+}
+
+</style>

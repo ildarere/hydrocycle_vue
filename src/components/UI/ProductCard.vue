@@ -105,7 +105,6 @@ export default {
     height: 20px;
 }
 .product-card_img {
-    width: 200px;
     height: 200px;
     margin-bottom: 14px;
 }

@@ -26,6 +26,7 @@ export default {
 <style lang="scss" scoped>
 .container {
     padding: 0;
+    margin-bottom: 40px;
 }
 .breadcrumb-item + .breadcrumb-item::before {
     content: '' !important;
