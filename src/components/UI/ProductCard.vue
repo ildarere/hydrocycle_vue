@@ -9,7 +9,7 @@
         <p class="product-card_name">{{ product.name }}</p>
         <p class="product-card_price" v-if="product.count > 0">{{ product.finalPrice.toLocaleString() }} <font-awesome-icon icon="fa-solid fa-ruble-sign" class="ruble"/></p>
         <div v-else>
-            <p class="none-product " >нет в наличии</p>
+            <p class="none-product" >нет в наличии</p>
             <p class="alert">Сообщить о поступлении</p>
         </div>
         <div class="buy-btn" v-if="product.count > 0">
@@ -59,6 +59,7 @@ export default {
     line-height: 21px;
     letter-spacing: 0em;
     margin: 0;
+    margin-bottom: 12px;
     text-align: center;
 }
 .alert {
@@ -68,6 +69,7 @@ export default {
     line-height: 19px;
     letter-spacing: 0em;
     color: #1C62CD;
+    padding: 0;
     text-decoration: underline;
     white-space: nowrap;
 }
@@ -78,6 +80,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid #CDCDCD;
     position: relative;
     border-radius: 3px;

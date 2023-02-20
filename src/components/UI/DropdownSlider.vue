@@ -5,7 +5,7 @@
           <span class="filter__name">{{ filterGroup.name }}</span>
       </div>
       <div class="dropdown" v-show="isShow" >
-        <range-slider :min='0' :max='1500000'></range-slider>
+        <range-slider :min='0' :max='2000000' :filters="filters" @update="updateFilter"></range-slider>
       </div>
   </div>
 </template>
@@ -24,6 +24,11 @@ export default {
     },
     filters: {
       type: Array
+    }
+  },
+  methods: {
+    updateFilter (filter) {
+      this.$emit('update', filter)
     }
   }
 }

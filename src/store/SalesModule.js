@@ -10,7 +10,6 @@ export const SalesModule = {
   getters: {
     getSale: (state) => {
       const rand = Math.floor(Math.random() * state.sales.length)
-      console.log(state.sales[rand])
       return state.sales[rand]
     }
   },

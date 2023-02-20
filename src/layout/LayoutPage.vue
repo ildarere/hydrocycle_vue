@@ -1,11 +1,11 @@
 <template >
     <nav-bar-vue
-    v-if="!NavBarMobileVisible"
+    v-if="!isMedium"
     :categories="getLayoutCategories"
     :shoppingСounter="getShoppingCartCounter"
   ></nav-bar-vue>
   <nav-bar-mobile-vue
-    v-if="NavBarMobileVisible"
+    v-if="isMedium"
     v-model:show="navBarVisible"
     :categories="getLayoutCategories"
     :shoppingСounter="getShoppingCartCounter"

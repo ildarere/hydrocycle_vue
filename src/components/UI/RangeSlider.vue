@@ -1,15 +1,15 @@
 <template >
       <div class='containero'>
           <div class='slider-track'></div>
-          <input type='range' :min="min" :max="max" value='100000' id='slider-1' @input='slideOne()'>
-          <input type='range' :min="min" :max="max" value='500000' id='slider-2' @input='slideTwo()'>
+          <input type='range' :min="min" :max="max" v-model="bottomPriceFilter.value" step="500" id='slider-1' @input='slideOne' @change="$emit('update', bottomPriceFilter)">
+          <input type='range' :min="min" :max="max" v-model="topPriceFilter.value" step="500" id='slider-2' @input='slideTwo' @change="$emit('update', topPriceFilter)">
       </div>
       <div class='values'>
         <div>
-          от <span class="price">{{ bottomPrice.toLocaleString() }}</span>
+          от <span class="price">{{ bottomPriceFilter.value.toLocaleString() }}</span>
         </div>
         <div>
-          до <span class="price">{{ topPrice.toLocaleString() }}</span>
+          до <span class="price">{{ topPriceFilter.value.toLocaleString() }}</span>
         </div>
     </div>
 </template>
@@ -17,9 +17,9 @@
 export default {
   data () {
     return {
-      bottomPrice: 0,
-      topPrice: 500000,
-      minGap: 0
+      minGap: 0,
+      topPriceFilter: {},
+      bottomPriceFilter: {}
     }
   },
   props: {
@@ -28,6 +28,9 @@ export default {
     },
     max: {
       type: Number
+    },
+    filters: {
+      type: Array
     }
   },
   methods: {
@@ -37,7 +40,6 @@ export default {
       if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= this.minGap) {
         sliderOne.value = parseInt(sliderTwo.value) - this.minGap
       }
-      this.bottomPrice = sliderOne.value
       this.fillColor()
     },
     slideTwo () {
@@ -46,22 +48,24 @@ export default {
       if (parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= this.minGap) {
         sliderTwo.value = parseInt(sliderOne.value) + this.minGap
       }
-      this.topPrice = sliderTwo.value
       this.fillColor()
     },
     fillColor () {
       const sliderOne = document.getElementById('slider-1')
       const sliderTwo = document.getElementById('slider-2')
       const sliderTrack = document.querySelector('.slider-track')
-      const sliderMaxValue = document.getElementById('slider-1').max
-      const percent1 = (sliderOne.value / sliderMaxValue) * 100
-      const percent2 = (sliderTwo.value / sliderMaxValue) * 100
+      const percent1 = (sliderOne.value / this.max) * 100
+      const percent2 = (sliderTwo.value / this.max) * 100
       sliderTrack.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #3264fe ${percent1}% , #3264fe ${percent2}%, #dadae5 ${percent2}%)`
     }
   },
   mounted () {
     this.slideOne()
     this.slideTwo()
+  },
+  created () {
+    this.topPriceFilter = this.filters.find(filter => filter.filter === 'priceTop')
+    this.bottomPriceFilter = this.filters.find(filter => filter.filter === 'priceBottom')
   }
 }
 </script>

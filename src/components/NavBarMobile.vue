@@ -31,7 +31,7 @@
   </nav>
 <transition name="menu">
     <div class="mobile-nav-back" v-if="show" @click.stop="hideDialog">
-      <nav  class="mobile-nav">
+      <nav  class="mobile-nav" @click.stop>
         <ul class="nav mobile-nav-list ">
           <li class="nav-item"
             v-for="(link, index) in menuLinksMobile" :key="index"
@@ -77,7 +77,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 1000;
+  z-index: 100;
 }
 .margin-top {
   margin-bottom: 145px;

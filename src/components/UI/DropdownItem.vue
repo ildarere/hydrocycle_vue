@@ -6,7 +6,7 @@
     </div>
     <div class="dropdown" v-show="isShow" >
         <div v-for="filter of filters" :key="filter.id">
-            <input type="checkbox" name="filters" :id="filter.id" class="checkbox__input" @change="$emit('change', filter)">
+            <input type="checkbox" name="filters" :id="filter.id" class="checkbox__input" v-model="filter.value" @change="$emit('update', filter)">
             <label class="checkbox" :class="{ 'me-5': filters.length <= 2, 'me-4': filters.length === 3}" :for="filter.id">{{ filter.name }}</label>
         </div>
     </div>

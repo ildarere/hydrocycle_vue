@@ -5,7 +5,7 @@ export default {
         width: 0,
         height: 0
       },
-      NavBarMobileVisible: false,
+      isMedium: false,
       isMobile: false
     }
   },
@@ -20,7 +20,7 @@ export default {
     handleResize () {
       this.window.width = window.innerWidth
       this.window.height = window.innerHeight
-      this.window.width <= 1024 ? this.NavBarMobileVisible = true : this.NavBarMobileVisible = false
+      this.window.width <= 1024 ? this.isMedium = true : this.isMedium = false
       this.window.width < 768 ? this.isMobile = true : this.isMobile = false
     }
   }

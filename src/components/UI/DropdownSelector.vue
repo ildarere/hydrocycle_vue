@@ -1,7 +1,7 @@
 <template>
     <div class="filter">
         <span class="filter__name">{{ filterGroup.name }}</span>
-        <select class="form-select w-auto" aria-label="Default select">
+        <select class="form-select w-auto" aria-label="Default select" v-model="filter.value" @change="$emit('update', filter)">
           <option v-for="option of filterGroup.expectedValue"
             :key="option.value"
             :value="option.value"
@@ -12,6 +12,11 @@
 </template>
 <script>
 export default {
+  data () {
+    return {
+      filter: {}
+    }
+  },
   props: {
     filterGroup: {
       type: Object
@@ -19,6 +24,9 @@ export default {
     filters: {
       type: Array
     }
+  },
+  created () {
+    this.filter = this.filters[0]
   }
 }
 </script>
