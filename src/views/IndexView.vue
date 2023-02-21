@@ -13,9 +13,17 @@
       :likedProducts="getLikedProducts"
       @likeToggle="toggleLikedProducts"
       :isMobile="isMobile"
+      @showcart="showcart"
     ></popular-products-section-vue>
     <promotion-banner-sale
     :sale="getSale"></promotion-banner-sale>
+    <shopping-cart-dialog
+      @close="showToggle"
+      v-if="isShow"
+      :product="tempProd"
+      @addincart="addProductInShoppingCartMethod"
+    >
+    </shopping-cart-dialog>
   </layout-page-vue>
 </template>
 <script>
@@ -26,22 +34,40 @@ import CetegoriesSectionVue from '@/components/CetegoriesSection.vue'
 import PopularProductsSectionVue from '@/components/PopularProductsSection.vue'
 import PromotionBannerSale from '@/components/UI/PromotionBannerSale.vue'
 import widthTrackingMixin from '@/mixins/widthTrackingMixin'
+import showToggleMixin from '@/mixins/showToggleMixin'
+import ShoppingCartDialog from '@/components/UI/ShoppingCartDialog.vue'
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
-  mixins: [widthTrackingMixin],
+  mixins: [widthTrackingMixin, showToggleMixin],
+  data () {
+    return {
+      tempProd: {}
+    }
+  },
   components: {
-    LayoutPageVue, PromotionSectionVue, SearchingSectionVue, CetegoriesSectionVue, PopularProductsSectionVue, PromotionBannerSale
+    LayoutPageVue, PromotionSectionVue, SearchingSectionVue, CetegoriesSectionVue, PopularProductsSectionVue, PromotionBannerSale, ShoppingCartDialog
   },
   methods: {
     ...mapMutations({
       setPageProducts: 'products/setPageProducts',
-      toggleLikedProducts: 'user/toggleLikedProducts'
+      toggleLikedProducts: 'user/toggleLikedProducts',
+      addProductInShoppingCart: 'user/addProductInShoppingCart',
+      minusProduct: 'products/minusProduct'
     }),
     ...mapActions({
       updateInformation: 'products/update'
     }),
     updateProducts (categoryId) {
       this.setPageProducts(this.getPopularProductsInCategory(categoryId, 4))
+    },
+    showcart (productId) {
+      this.showToggle()
+      this.tempProd = this.getProductById(productId)
+    },
+    addProductInShoppingCartMethod (id, count) {
+      this.showToggle()
+      this.addProductInShoppingCart({ id: id, count: count })
+      this.minusProduct({ id: id, count: count })
     }
   },
   created () {

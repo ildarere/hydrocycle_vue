@@ -73,7 +73,8 @@ export default {
       setPageGroups: 'filters/setPageGroups',
       setPage: 'products/setPage',
       setPopularFilters: 'filters/setPopularFilters',
-      addProductInShoppingCart: 'user/addProductInShoppingCart'
+      addProductInShoppingCart: 'user/addProductInShoppingCart',
+      minusProduct: 'products/minusProduct'
     }),
     ...mapActions({
       updateFilter: 'filters/updateFilter',
@@ -87,6 +88,7 @@ export default {
     addProductInShoppingCartMethod (id, count) {
       this.showToggle()
       this.addProductInShoppingCart({ id: id, count: count })
+      this.minusProduct({ id: id, count: count })
     }
   },
   computed: {

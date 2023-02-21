@@ -80,6 +80,9 @@ export const productsModule = {
     },
     sortByPopular: (state) => {
       state.pageProducts.sort(() => Math.random() - 0.5)
+    },
+    minusProduct: (state) => (productMinus) => {
+      state.products.find(product => product.id === productMinus.id).count -= productMinus.count
     }
   },
   actions: {
