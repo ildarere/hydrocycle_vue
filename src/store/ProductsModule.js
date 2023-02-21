@@ -23,7 +23,16 @@ export const productsModule = {
       { id: '20', name: 'Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream', img: 'BRP SeaDoo GTR 230hp STD Black Gulfstream.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp STD Black / Gulfstream', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }] },
       { id: '21', name: 'Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal', img: 'BRP SeaDoo GTX 300hp LTD Liquid Metal.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1543000, finalPrice: 1543000, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTX 300hp LTD Liquid Metal', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }] },
       { id: '22', name: 'Гидроцикл BRP SeaDoo Spark 60hp 2 up', img: 'BRP SeaDoo Spark 60hp 2 up.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 732345, finalPrice: 732345, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'Sea-doo Spark 2', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }] },
-      { id: '23', name: 'Гидроцикл BRP SeaDoo Spark GTS 90hp Rental', img: 'BRP SeaDoo Spark GTS 90hp Rental.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 857666, finalPrice: 857666, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo Spark GTS 90hp Rental', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }] }
+      { id: '23', name: 'Гидроцикл BRP SeaDoo Spark GTS 90hp Rental', img: 'BRP SeaDoo Spark GTS 90hp Rental.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 857666, finalPrice: 857666, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo Spark GTS 90hp Rental', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }] },
+      { id: '1', name: 'Мотор', img: 'motor-product.png', category: '8', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Шина для квадроцикла Wanda P376 26x10.00 -12 6PR TL', img: '5e04687a1ebb9f355d6adbb76ebc63dc.jpg', category: '9', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Гаечный ключ', img: 'png-transparent-adjustable-spanner-car-car.png', category: '11', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Очки для плавания', img: 'png-transparent-goggles-swimming-glasses-swans-goggles-lens-sport-swimming-pool.png', category: '12', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Квадроцикл', img: 'atv.png', category: '1', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Катер', img: 'speedboat.png', category: '3', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Снегоход', img: 'snowmobile.png', category: '4', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Вездеход', img: 'cross-country-vehicle.png', category: '5', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
+      { id: '1', name: 'Двигатель', img: 'engine.png', category: '6', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] }
     ],
     pageProducts: [],
     totalPages: 10,
@@ -143,27 +152,6 @@ export const productsModule = {
                 ? isMatchP.push(true)
                 : isMatchP.push(false)
               break
-            case 'models':
-              if (filter.value) {
-                product.parametrs.find(param => param.name === 'model').value === filter.name
-                  ? isMatchP.push(true)
-                  : isMatchP.push(false)
-              }
-              break
-            case 'brands':
-              if (filter.value) {
-                product.parametrs.find(param => param.name === 'brand').value === filter.name
-                  ? isMatchP.push(true)
-                  : isMatchP.push(false)
-              }
-              break
-            case 'country':
-              if (filter.value) {
-                product.parametrs.find(param => param.name === 'country').value === filter.name
-                  ? isMatchP.push(true)
-                  : isMatchP.push(false)
-              }
-              break
             default:
               isMatchP.push(true)
               break
@@ -171,7 +159,52 @@ export const productsModule = {
         })
         return !isMatchP.includes(false)
       }
-      commit('setPageProducts', tempProductList.filter(isMatch))
+      const models = filters.filter(filter => filter.filter === 'models')
+      const brands = filters.filter(filter => filter.filter === 'brands')
+      const country = filters.filter(filter => filter.filter === 'country')
+      const isMatchModels = (product) => {
+        const isMatchP = []
+        models.forEach(filter => {
+          if (filter.value) {
+            product.parametrs.find(param => param.name === 'model').value === filter.name
+              ? isMatchP.push(true)
+              : isMatchP.push(false)
+          }
+        })
+        if (isMatchP.length === 0) {
+          return true
+        }
+        return isMatchP.includes(true)
+      }
+      const isMatchCountry = (product) => {
+        const isMatchP = []
+        country.forEach(filter => {
+          if (filter.value) {
+            product.parametrs.find(param => param.name === 'country').value === filter.name
+              ? isMatchP.push(true)
+              : isMatchP.push(false)
+          }
+        })
+        if (isMatchP.length === 0) {
+          return true
+        }
+        return isMatchP.includes(true)
+      }
+      const isMatchBrands = (product) => {
+        const isMatchP = []
+        brands.forEach(filter => {
+          if (filter.value) {
+            product.parametrs.find(param => param.name === 'brand').value === filter.name
+              ? isMatchP.push(true)
+              : isMatchP.push(false)
+          }
+        })
+        if (isMatchP.length === 0) {
+          return true
+        }
+        return isMatchP.includes(true)
+      }
+      commit('setPageProducts', tempProductList.filter(isMatch).filter(isMatchModels).filter(isMatchCountry).filter(isMatchBrands))
       commit('setTotalPages', Math.ceil(state.pageProducts.length / state.pageLimit))
     }
   },

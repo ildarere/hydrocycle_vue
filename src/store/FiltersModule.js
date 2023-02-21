@@ -65,12 +65,7 @@ export const FiltersModule = {
     },
     setPopularFilters: (state) => {
       const tempFilters = state.pageFilters.filter(filter => filter.filterGroup === '10' || filter.filterGroup === '8' || filter.filterGroup === '7')
-      while (state.popularFilters.length !== 5) {
-        const rand = Math.floor(Math.random() * tempFilters.length)
-        if (!state.popularFilters.includes(tempFilters[rand])) {
-          state.popularFilters.push(tempFilters[rand])
-        }
-      }
+      state.popularFilters = tempFilters.sort(() => Math.random() - 0.5).slice(0, 5)
     }
   },
   actions: {
