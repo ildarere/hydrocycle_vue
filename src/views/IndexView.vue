@@ -58,7 +58,7 @@ export default {
       updateInformation: 'products/update'
     }),
     updateProducts (categoryId) {
-      this.setPageProducts(this.getPopularProductsInCategory(categoryId, 4))
+      this.setPageProducts(this.getPopularProductsInCategory(categoryId, 8))
     },
     showcart (productId) {
       this.showToggle()
@@ -71,7 +71,7 @@ export default {
     }
   },
   created () {
-    this.updateInformation()
+    this.updateInformation(this.getSales)
   },
   computed: {
     ...mapState({
@@ -88,7 +88,8 @@ export default {
       getLikedProducts: 'user/getLikedProducts',
       getMainCategories: 'categories/getMainCategories',
       getCategoriesSubMain: 'categories/getCategoriesSubMain',
-      getSale: 'sales/getSale'
+      getSale: 'sales/getSale',
+      getSales: 'sales/getSales'
     })
   }
 }

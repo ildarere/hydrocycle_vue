@@ -49,6 +49,7 @@ export default {
     }
   },
   created () {
+    this.updateInformation(this.getSales)
     this.category = this.getCategoryByName(this.$route.params.category)
     this.setPageGroups(this.category.id)
     this.setPageFilters()
@@ -79,6 +80,7 @@ export default {
     ...mapActions({
       updateFilter: 'filters/updateFilter',
       updateProducts: 'products/updateProducts',
+      updateInformation: 'products/update',
       sort: 'products/sort'
     }),
     showcart (productId) {
@@ -111,7 +113,8 @@ export default {
       getTotalPages: 'products/getTotalPages',
       getPage: 'products/getPage',
       getPageProducts: 'products/getPageProducts',
-      getPopularFilters: 'filters/getPopularFilters'
+      getPopularFilters: 'filters/getPopularFilters',
+      getSales: 'sales/getSales'
     })
   }
 }

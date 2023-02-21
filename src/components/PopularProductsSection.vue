@@ -3,13 +3,12 @@
       <h2 class="section-title">Популярные товары</h2>
       <nav class="navbar nav-bottom-line navbar-expand-lg navbar-expand-md navbar-light p-0">
         <div class="container-fluid p-0 w-100 h-100">
-            <ul class="navbar-nav d-flex flex-wrap justify-content-start align-items- w-100 h-100">
-              <li class="nav-item nav-bottom-line__items h-100"
-                v-for="category in categories" :key="category.id"
-                @click="$emit('update', category.id)">
-                <a class="nav-link p-0" href="#" @click.prevent="">{{ category.name }}</a>
-              </li>
-            </ul>
+          <div class="nav-container">
+            <div v-for="category of categories" :key="category.id" class="">
+              <input type="radio" name="radio" :id="category.name + category.id" class="category"/>
+              <label :for="category.name + category.id" class="nav-item" @click="$emit('update', category.id); currentCategory = category">{{ category.name }}</label>
+            </div>
+          </div>
         </div>
       </nav>
     <div id="carouselWithIndicatorsProducts" class="carousel slide" data-bs-ride="carousel">
@@ -22,7 +21,7 @@
           <div class="carousel-item active" v-if="!isMobile">
             <div class=" d-flex product-container " alt="">
               <product-card
-                v-for="product of productsAdapt"
+                v-for="product of products.slice(0, 4)"
                 :key="product.id"
                 :product="product"
                 :isLiked="likedProducts.includes(product.id) ? true : false"
@@ -31,10 +30,10 @@
               ></product-card>
             </div>
           </div>
-          <div class="carousel-item " v-if="!isMobile">
+          <div class="carousel-item " v-if="!isMobile && products.length > 4">
             <div class="d-flex product-container " alt="" >
               <product-card
-                v-for="product of productsAdapt"
+                v-for="product of products.slice(4, 8)"
                 :key="product.id"
                 :product="product"
                 :isLiked="likedProducts.includes(product.id) ? true : false"
@@ -42,31 +41,32 @@
               ></product-card>
             </div>
           </div>
-          <div class="carousel-item align-self-center"
-                v-else
-                v-for="(product, index) in productsAdapt"
-                :class="{active: index === 0}"
-                :key="product.id">
-            <div class="d-block d-flex product-container" alt="" >
-              <product-card
-                :product="product"
-                :isLiked="likedProducts.includes(product.id) ? true : false"
-                @likeToggle="$emit('likeToggle', product.id)"
-                @showcart="$emit('showcart', product.id)"
-              ></product-card>
+          <div v-if="isMobile">
+            <div class="carousel-item align-self-center"
+                  v-for="(product, index) in products.slice(0, 3)"
+                  :class="{active: index === 0}"
+                  :key="product.id">
+              <div class="d-block d-flex product-container" alt="" >
+                <product-card
+                  :product="product"
+                  :isLiked="likedProducts.includes(product.id) ? true : false"
+                  @likeToggle="$emit('likeToggle', product.id)"
+                  @showcart="$emit('showcart', product.id)"
+                ></product-card>
+              </div>
             </div>
           </div>
       </div>
-        <a class="carousel-control-prev " href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="prev" :class="{ disabled : products.length < 4 }">
             <span class="carousel-control-prev-icon " aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next carousel-control" href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="next">
+        <a class="carousel-control-next carousel-control" href="#carouselWithIndicatorsProducts" role="button" data-bs-slide="next" :class="{ disabled : products.length < 4 }">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </a>
       </div>
-      <div class="show-more" role="button">Показать еще</div>
+      <div class="show-more" role="button" @click.prevent="$router.push({path:`/catalog/${currentCategory.nameEn}`})">Показать еще</div>
     </div>
 </template>
 <script>
@@ -74,7 +74,7 @@ import ProductCard from '@/components/UI/ProductCard.vue'
 export default {
   data () {
     return {
-      productsAdapt: []
+      currentCategory: {}
     }
   },
   components: {
@@ -99,18 +99,14 @@ export default {
   },
   created () {
     this.$emit('update', '7')
-    this.$watch('products', () => {
-      this.isMobile ? this.productsAdapt = this.products.slice(0, 3) : this.productsAdapt = this.products.slice(0, 4)
-    })
-  },
-  mounted () {
-    this.$watch('isMobile', () => {
-      this.isMobile ? this.productsAdapt = this.products.slice(0, 3) : this.productsAdapt = this.products.slice(0, 4)
-    })
+    this.currentCategory = this.categories.find(category => category.id === '7')
   }
 }
 </script>
 <style lang="scss" scoped>
+.disabled {
+  opacity: 0.1 !important;
+}
 .show-more {
   width: 252px;
   height: 50px;
@@ -184,12 +180,24 @@ export default {
   height: 30px;
   margin-bottom: 25px;
 }
+.nav-container {
+  height: 45px;
+  display: flex;
+}
 .nav-item {
   margin-right: 50px;
+  display: flex;
+  align-items: center;
   position: relative !important;
   height: 100%;
-  &:hover::after {
-    display: block;
+  font-family: 'SF Pro Display';
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+  text-transform: lowercase;
+  &::after {
+    display: none;
     content: '';
     position: absolute;
     bottom: 0;
@@ -197,17 +205,15 @@ export default {
     width: 100%;
     border-bottom: 3px solid #1C62CD;
   }
-  &:hover .nav-link {
-    font-weight: bold;
-  }
 }
-.nav-link {
-  font-family: 'SF Pro Display';
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 18px;
-  letter-spacing: 0em;
-  text-transform: lowercase;
+.category {
+  display: none;
+  &:checked + .nav-item {
+    &::after {
+      display: block;
+    }
+  font-weight: bold;
+}
 }
 @media screen and (max-width: 1024px) {
 .carousel {

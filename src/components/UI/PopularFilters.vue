@@ -6,7 +6,7 @@
       <label :for="filter.name + filter.id" class="popular-filters-container__filter">{{ filter.name }}</label>
     </div>
   </div>
-  <div class="popular-filters-container">
+  <div class="popular-filters-container" v-if="popularFilters.length > 3">
     <input v-show="!isShow" @click="showToggle" type="checkbox" name="checkbox" id="add" class="popular-filters-container__checkbox"/>
     <label v-show="!isShow" for="add" class="popular-filters-container__filter">ещё</label>
     <div class="popular-filters-container" v-show="isShow">

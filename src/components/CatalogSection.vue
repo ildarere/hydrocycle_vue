@@ -46,11 +46,14 @@
             >
           </product-card>
           </div>
+          <div class="empty" v-if="products.length === 0">Нет подходящих товаров</div>
           <page-wrapper
+            v-else
             :currentPage="currentPage"
             :totalPages="totalPages"
             @changepage="changePage">
           </page-wrapper>
+
         </div>
       </div>
     </div>
@@ -110,6 +113,7 @@ export default {
       this.$emit('update', filter)
     },
     updateProducts () {
+      this.$emit('changepage', 1)
       this.$emit('updateproducts')
     },
     changePage (pageNumber) {
@@ -135,6 +139,7 @@ export default {
 .catalog {
   display: flex;
   flex-direction: column;
+  align-items: center;
   flex: 4;
 }
 .filters {

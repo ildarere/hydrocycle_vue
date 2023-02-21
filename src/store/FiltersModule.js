@@ -61,7 +61,30 @@ export const FiltersModule = {
       state.pageGroups = state.filtersGroup.filter(group => group.category.includes(category))
     },
     setPageFilters: (state) => {
-      state.pageFilters = state.filters.filter(filter => state.pageGroups.some(group => group.id === filter.filterGroup))
+      function copy (obj) {
+        function copyProps (clone) {
+          for (const key in obj) {
+            if (Object.prototype.hasOwnProperty.call(obj, key)) {
+              clone[key] = copy(obj[key])
+            }
+          }
+        }
+        function cloneObj () {
+          const clone = {}
+          copyProps(clone)
+          return clone
+        }
+        function cloneArr () {
+          return obj.map(function (item) {
+            return copy(item)
+          })
+        }
+        const type = Object.prototype.toString.call(obj).slice(8, -1).toLowerCase()
+        if (type === 'object') return cloneObj()
+        if (type === 'array') return cloneArr()
+        return obj
+      }
+      state.pageFilters = copy(state.filters.filter(filter => state.pageGroups.some(group => group.id === filter.filterGroup)))
     },
     setPopularFilters: (state) => {
       const tempFilters = state.pageFilters.filter(filter => filter.filterGroup === '10' || filter.filterGroup === '8' || filter.filterGroup === '7')
