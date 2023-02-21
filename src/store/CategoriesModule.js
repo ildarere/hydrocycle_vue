@@ -30,6 +30,9 @@ export const CategoriesModule = {
     },
     getCategoryById: (state) => (categoryId) => {
       return state.categories.find(category => category.id === categoryId)
+    },
+    getCategoryByName: (state) => (categoryName) => {
+      return state.categories.find(category => category.nameEn === categoryName)
     }
   },
   namespaced: true

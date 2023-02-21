@@ -18,26 +18,38 @@
       :sortFilters="sortOptions"
       @sort="sort"
       :popularFilters="getPopularFilters"
+      @showcart="showcart"
       >
     </catalog-section-vue>
+    <shopping-cart-dialog
+      @close="showToggle"
+      v-if="isShow"
+      :product="tempProd"
+      @addincart="addProductInShoppingCartMethod"
+    >
+    </shopping-cart-dialog>
   </layout-page-vue>
 </template>
 <script>
 import LayoutPageVue from '@/layout/LayoutPage.vue'
 import BreadCrumbVue from '@/components/UI/BreadCrumb.vue'
 import CatalogSectionVue from '@/components/CatalogSection.vue'
+import ShoppingCartDialog from '@/components/UI/ShoppingCartDialog.vue'
+import showToggleMixin from '@/mixins/showToggleMixin'
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   components: {
-    LayoutPageVue, BreadCrumbVue, CatalogSectionVue
+    LayoutPageVue, BreadCrumbVue, CatalogSectionVue, ShoppingCartDialog
   },
+  mixins: [showToggleMixin],
   data () {
     return {
-      category: {}
+      category: {},
+      tempProd: {}
     }
   },
   created () {
-    this.category = this.getCategoryById(this.$route.query.category)
+    this.category = this.getCategoryByName(this.$route.params.category)
     this.setPageGroups(this.category.id)
     this.setPageFilters()
     this.pageFilters.find(filter => filter.filter === 'category').value = this.category
@@ -46,7 +58,7 @@ export default {
   },
   watch: {
     $route () {
-      this.category = this.getCategoryById(this.$route.query.category)
+      this.category = this.getCategoryByName(this.$route.params.category)
       this.setPageGroups(this.category.id)
       this.setPageFilters()
       this.pageFilters.find(filter => filter.filter === 'category').value = this.category
@@ -60,13 +72,22 @@ export default {
       setPageFilters: 'filters/setPageFilters',
       setPageGroups: 'filters/setPageGroups',
       setPage: 'products/setPage',
-      setPopularFilters: 'filters/setPopularFilters'
+      setPopularFilters: 'filters/setPopularFilters',
+      addProductInShoppingCart: 'user/addProductInShoppingCart'
     }),
     ...mapActions({
       updateFilter: 'filters/updateFilter',
       updateProducts: 'products/updateProducts',
       sort: 'products/sort'
-    })
+    }),
+    showcart (productId) {
+      this.showToggle()
+      this.tempProd = this.getProductById(productId)
+    },
+    addProductInShoppingCartMethod (id, count) {
+      this.showToggle()
+      this.addProductInShoppingCart({ id: id, count: count })
+    }
   },
   computed: {
     ...mapState({
@@ -78,8 +99,10 @@ export default {
     }),
     ...mapGetters({
       getLikedProducts: 'user/getLikedProducts',
+      getCategoryByName: 'categories/getCategoryByName',
       getCategoryById: 'categories/getCategoryById',
       getProductsInCategory: 'products/getProductsInCategory',
+      getProductById: 'products/getProductById',
       getFiltersGroup: 'filters/getFiltersGroup',
       getFilterByGroup: 'filters/getFilterByGroup',
       getFiltersByCategory: 'filters/getFiltersByCategory',

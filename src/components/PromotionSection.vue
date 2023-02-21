@@ -26,7 +26,7 @@ export default {
     margin-bottom: 80px;
 }
 .promotion-section__slider {
-    max-width: 870px;
+    width: 870px;
     flex: 0 2 auto;
 }
 .promotion {

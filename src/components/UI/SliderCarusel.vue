@@ -1,31 +1,17 @@
 <template >
 <div id="carouselWithIndicators" class="carousel slide" data-bs-ride="carousel">
    <ol class="carousel-indicators">
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="0" class="active indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="1" class="indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="2" class="indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="3" class="indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="4" class="indicator"></li>
-      <li data-bs-target="#carouselWithIndicators" data-bs-slide-to="5" class="indicator"></li>
+      <li data-bs-target="#carouselWithIndicators"
+        v-for="(prod, index) in 3"
+        :key="index"
+        :data-bs-slide-to="index"
+        :class="{active: index === 0}"
+        class="indicator"
+      ></li>
    </ol>
-   <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 1">
-      </div>
-      <div class="carousel-item">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 2">
-      </div>
-      <div class="carousel-item">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 3">
-      </div>
-      <div class="carousel-item">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 4">
-      </div>
-      <div class="carousel-item">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 5">
-      </div>
-      <div class="carousel-item">
-        <img src="@/assets/carusel/banner.png" class="d-block w-100" alt="Slide 6">
+   <div class="carousel-inner ">
+      <div class="carousel-item  " v-for="(prod, index) in 3" :key="index" :class="{active: index === 0}">
+        <img :src="require(`@/assets/carusel/banner${index+1}.png`)" class="d-block w-100 carousel-img" :alt="`slide ${index}`">
       </div>
    </div>
    <a class="carousel-control-prev" href="#carouselWithIndicators" role="button" data-bs-slide="prev">
@@ -43,6 +29,9 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.carousel-img {
+  max-height: 400px;
+}
 .indicator {
     border-radius: 50% !important;
     background-color: transparent !important;

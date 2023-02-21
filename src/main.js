@@ -10,11 +10,11 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons'
-import { faUser, faCartShopping, faLocationDot, faBars, faRubleSign, faMagnifyingGlass, faChevronRight, faHeart as faHeartSolid, faChevronUp, faFilter, faXmark} from '@fortawesome/free-solid-svg-icons'
+import { faUser, faCartShopping, faLocationDot, faBars, faRubleSign, faMagnifyingGlass, faChevronRight, faHeart as faHeartSolid, faChevronUp, faFilter, faXmark, faMinus, faPlus} from '@fortawesome/free-solid-svg-icons'
 import { faVk, faYoutubeSquare, faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons' 
 
 
-library.add(faHeartRegular, faUser, faCartShopping, faLocationDot, faVk, faYoutubeSquare, faFacebook, faInstagram, faBars, faRubleSign, faMagnifyingGlass, faChevronRight, faHeartSolid, faChevronUp, faFilter, faXmark)
+library.add( faMinus, faPlus, faHeartRegular, faUser, faCartShopping, faLocationDot, faVk, faYoutubeSquare, faFacebook, faInstagram, faBars, faRubleSign, faMagnifyingGlass, faChevronRight, faHeartSolid, faChevronUp, faFilter, faXmark)
 const app = createApp(App);
 app
     .component('font-awesome-icon', FontAwesomeIcon)

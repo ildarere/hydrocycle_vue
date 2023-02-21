@@ -1,10 +1,10 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
 import IndexVue from '@/views/IndexView.vue'
 import CatalogView from '@/views/CatalogView.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
 const routes = [
   {
     path: '/',
-    name: 'home',
     component: IndexVue
   },
   {
@@ -13,7 +13,7 @@ const routes = [
   }
 ]
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(process.env.BASE_URL),
   routes
 })
 

@@ -12,8 +12,8 @@
             <p class="none-product" >нет в наличии</p>
             <p class="alert">Сообщить о поступлении</p>
         </div>
-        <div class="buy-btn" v-if="product.count > 0">
-            <font-awesome-icon icon="fa-solid fa-cart-shopping "  class="buy-btn_cart" />
+        <div class="buy-btn" v-if="product.count > 0" @click="$emit('showcart', product.id)">
+            <font-awesome-icon icon="fa-solid fa-cart-shopping " class="buy-btn_cart" />
         </div>
         <div class="view-product">посмотреть товар</div>
     </div>
@@ -110,6 +110,7 @@ export default {
 .product-card_img {
     height: 200px;
     margin-bottom: 14px;
+    max-width: 268px;
 }
 .product-card_name {
     font-family: 'SF Pro Display';

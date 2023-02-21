@@ -42,6 +42,7 @@
             :product="product"
             :isLiked="likedProducts.includes(product.id) ? true : false"
             @likeToggle="$emit('likeToggle', product.id)"
+            @showcart="$emit('showcart', product.id)"
             >
           </product-card>
           </div>
