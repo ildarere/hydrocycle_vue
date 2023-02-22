@@ -1,6 +1,5 @@
 import IndexVue from '@/views/IndexView.vue'
 import CatalogView from '@/views/CatalogView.vue'
-import SearchView from '@/views/SearchView.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -11,10 +10,6 @@ const routes = [
   {
     path: '/catalog/:category',
     component: CatalogView
-  },
-  {
-    path: '/search',
-    component: SearchView
   }
 ]
 const router = createRouter({

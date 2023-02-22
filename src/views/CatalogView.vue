@@ -1,8 +1,9 @@
 <template >
-  <layout-page-vue >
+  <layout-page-vue>
     <bread-crumb-vue
       :category="category"
     ></bread-crumb-vue>
+    <searching-section-vue v-if="category.id === '13'"></searching-section-vue>
     <catalog-section-vue
       :category="category"
       :products="getPageProducts"
@@ -11,7 +12,7 @@
       :filtersGroup="pageGroups"
       :filters="pageFilters"
       @update="updateFilter"
-      @updateproducts="updateProducts(pageFilters, category)"
+      @updateproducts="updateProductsF(pageFilters, category)"
       :totalPages="getTotalPages"
       :currentPage="getPage"
       @changepage="setPage"
@@ -36,10 +37,11 @@ import BreadCrumbVue from '@/components/UI/BreadCrumb.vue'
 import CatalogSectionVue from '@/components/CatalogSection.vue'
 import ShoppingCartDialog from '@/components/UI/ShoppingCartDialog.vue'
 import showToggleMixin from '@/mixins/showToggleMixin'
+import SearchingSectionVue from '@/components/SearchingSection.vue'
 import { mapState, mapGetters, mapMutations, mapActions } from 'vuex'
 export default {
   components: {
-    LayoutPageVue, BreadCrumbVue, CatalogSectionVue, ShoppingCartDialog
+    LayoutPageVue, BreadCrumbVue, CatalogSectionVue, ShoppingCartDialog, SearchingSectionVue
   },
   mixins: [showToggleMixin],
   data () {
@@ -56,6 +58,10 @@ export default {
     this.pageFilters.find(filter => filter.filter === 'category').value = this.category
     this.setPopularFilters()
     this.updateProducts(this.pageFilters, this.category)
+    if (this.category.id === '13') {
+      this.setProductsByReq(this.$route.query)
+    }
+    this.setPage(1)
   },
   watch: {
     $route () {
@@ -65,6 +71,10 @@ export default {
       this.pageFilters.find(filter => filter.filter === 'category').value = this.category
       this.setPopularFilters()
       this.updateProducts(this.pageFilters, this.category)
+      if (this.category.id === '13') {
+        this.setProductsByReq(this.$route.query)
+      }
+      this.setPage(1)
     }
   },
   methods: {
@@ -75,7 +85,8 @@ export default {
       setPage: 'products/setPage',
       setPopularFilters: 'filters/setPopularFilters',
       addProductInShoppingCart: 'user/addProductInShoppingCart',
-      minusProduct: 'products/minusProduct'
+      minusProduct: 'products/minusProduct',
+      setProductsByReq: 'products/setProductsByReq'
     }),
     ...mapActions({
       updateFilter: 'filters/updateFilter',
@@ -91,6 +102,12 @@ export default {
       this.showToggle()
       this.addProductInShoppingCart({ id: id, count: count })
       this.minusProduct({ id: id, count: count })
+    },
+    updateProductsF (pageFilters, category) {
+      this.updateProducts(pageFilters, category)
+      if (this.category.id === '13') {
+        this.setProductsByReq(this.$route.query)
+      }
     }
   },
   computed: {

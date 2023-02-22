@@ -12,7 +12,7 @@
           <form action="" class="serching-form w-100">
             <input type="text" class="serching-field" :placeholder="placeholder" v-model="searchReq">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="magnifying-glass d-md-none" role="button"/>
-            <button class="serching-btn d-none d-md-block" @click.prevent="$router.push({path:`/search`, query: {value: searchReq, type: searchVal[placeholder]}})">искать</button>
+            <button class="serching-btn d-none d-md-block" @click.prevent="$router.push({path:`/catalog/search`, query: {value: searchReq, type: searchVal[placeholder]}})">искать</button>
           </form>
         </div>
     </div>

@@ -100,6 +100,20 @@ export const productsModule = {
       state.products.find(product => product.id === productMinus.id).count -= productMinus.count
     },
     setProductsByReq: (state, req) => {
+      switch (req.type) {
+        case 'number':
+          state.pageProducts = state.pageProducts.filter(product => product.number.indexOf(req.value) !== -1)
+          break
+        case 'mark':
+          state.pageProducts = state.pageProducts.filter(product => product.parametrs.find(param => param.name === 'brand').value.toLowerCase().indexOf(req.value.toLowerCase()) !== -1)
+          break
+        case 'name':
+          state.pageProducts = state.pageProducts.filter(product => product.name.toLowerCase().indexOf(req.value.toLowerCase()) !== -1)
+          break
+        default:
+          break
+      }
+      state.totalPages = Math.ceil(state.pageProducts.length / state.pageLimit)
     }
   },
   actions: {
@@ -119,7 +133,7 @@ export const productsModule = {
         // product.price > product.finalPrice ? commit('setIsSale', { isSale: true, product: product }) : commit('setIsSale', { isSale: false, product: product })
         // if (product.saleEndDate >= new Date()) { commit('setIsSale', { isSale: false, product: product }) }
         const zeroNum = '000000'
-        product.number = zeroNum.substring(product.id, 14) + product.id
+        product.number = zeroNum.substring(product.id.length, 6) + product.id
       })
     },
     sort: ({ state, commit }, value) => {
@@ -159,9 +173,11 @@ export const productsModule = {
         filters.forEach(filter => {
           switch (filter.filter) {
             case 'category':
-              filter.value.id === product.category
-                ? isMatchP.push(true)
-                : isMatchP.push(false)
+              if (filter.value.id !== '13') {
+                filter.value.id === product.category
+                  ? isMatchP.push(true)
+                  : isMatchP.push(false)
+              }
               break
             case 'priceBottom':
               product.price >= filter.value
