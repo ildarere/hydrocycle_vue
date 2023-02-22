@@ -30,6 +30,8 @@
       <ul class="navbar-nav  d-flex justify-content-between w-100 align-items-center h-100">
         <li class="nav-item nav-bottom-line__items"
           v-for="category in categories" :key="category.id"
+          :class="{activetab : $route.params.category === category.nameEn}"
+          role="button"
         >
           <a class="nav-link p-0"  @click.prevent="$router.push({path:`/catalog/${category.nameEn}`})">{{ category.name }}</a>
         </li>
@@ -115,6 +117,15 @@ export default {
     width: 100%;
     border-bottom: 3px solid #1C62CD;;
   }
+}
+.activetab::after {
+  display: block;
+  content: '';
+  position: absolute;
+  bottom: -3px ;
+  height: 1px;
+  width: 100%;
+  border-bottom: 3px solid #1C62CD;;
 }
 .nav-link {
     font-family: 'SF Pro Display';

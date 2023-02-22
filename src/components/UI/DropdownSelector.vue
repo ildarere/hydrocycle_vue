@@ -2,6 +2,10 @@
     <div class="filter">
         <span class="filter__name">{{ filterGroup.name }}</span>
         <select class="form-select w-auto" aria-label="Default select" v-model="filter.value" @change="$emit('update', filter)">
+          <option
+            value="null"
+            class="option"
+          ></option>
           <option v-for="option of filterGroup.expectedValue"
             :key="option.value"
             :value="option.value"

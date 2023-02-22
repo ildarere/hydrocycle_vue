@@ -9,19 +9,19 @@ export const productsModule = {
       { id: '6', name: 'Garmin Echomap Plus 62cv', img: 'Garmin Echomap Plus 62cv.png', category: '10', with_this_product: ['2', '3', '4'], isSale: false, count: 11, price: 45800, finalPrice: 45800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
       { id: '7', name: 'RF D.E.S.S.TM Key', img: 'RF D.E.S.S.TM Key.png', category: '10', with_this_product: ['2', '3', '4'], isSale: true, count: 0, price: 9800, finalPrice: 8000, saleEndDate: new Date(2023, 1, 30), isNew: false, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
       { id: '8', name: 'Мужской костюм 3мм', img: 'Мужской костюм 3мм.png', category: '10', with_this_product: ['2', '3', '4'], isSale: false, count: 11, price: 7000, finalPrice: 7000, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
-      { id: '9', name: 'Гидроцикл BRP SeaDoo GTI 130hp SE Black\\Mango', img: 'BRP SeaDoo GTI 130hp SE Black.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1049500, finalPrice: 1049500, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 130hp SE Black\\Mango', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 230, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
-      { id: '10', name: 'Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic', img: 'BRP SeaDoo GTI 155hp SE Long Blue Metallic.png', category: '2', with_this_product: ['2', '3', '4'], isSale: true, count: 10, price: 1100475, finalPrice: 1100475, saleEndDate: new Date(2023, 1, 30), isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 155hp SE Long Blue Metallic', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
+      { id: '9', name: 'Гидроцикл BRP SeaDoo GTI 130hp SE Black\\Mango', img: 'BRP SeaDoo GTI 130hp SE Black.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1049500, finalPrice: 1049500, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 130hp SE Black\\Mango', isMain: true }, { name: 'brand', value: 'Spark 3', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 230, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
+      { id: '10', name: 'Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic', img: 'BRP SeaDoo GTI 155hp SE Long Blue Metallic.png', category: '2', with_this_product: ['2', '3', '4'], isSale: true, count: 10, price: 1100475, finalPrice: 1100475, saleEndDate: new Date(2023, 1, 30), isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 155hp SE Long Blue Metallic', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
       { id: '11', name: 'Гидроцикл BRP SeaDoo GTR 230hp X California green ', img: 'BRP SeaDoo GTR 230hp X California green.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp X California green', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 300, isMain: true }] },
-      { id: '12', name: 'Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream', img: 'BRP SeaDoo GTR 230hp STD Black Gulfstream.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp STD Black / Gulfstream', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
-      { id: '13', name: 'Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal', img: 'BRP SeaDoo GTX 300hp LTD Liquid Metal.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1543000, finalPrice: 1543000, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTX 300hp LTD Liquid Metal', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 300, isMain: true }] },
+      { id: '12', name: 'Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream', img: 'BRP SeaDoo GTR 230hp STD Black Gulfstream.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp STD Black / Gulfstream', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
+      { id: '13', name: 'Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal', img: 'BRP SeaDoo GTX 300hp LTD Liquid Metal.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1543000, finalPrice: 1543000, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTX 300hp LTD Liquid Metal', isMain: true }, { name: 'brand', value: 'Spark 3', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 300, isMain: true }] },
       { id: '14', name: 'Гидроцикл BRP SeaDoo Spark 60hp 2 up', img: 'BRP SeaDoo Spark 60hp 2 up.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 732345, finalPrice: 732345, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'Sea-doo Spark 2', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 300, isMain: true }, { name: 'enginePower', value: 230, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
-      { id: '15', name: 'Гидроцикл BRP SeaDoo Spark GTS 90hp Rental', img: 'BRP SeaDoo Spark GTS 90hp Rental.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 857666, finalPrice: 857666, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo Spark GTS 90hp Rental', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
-      { id: '16', name: 'Гидроцикл BRP SeaDoo WAKE 230hp PRO Teal blue', img: 'BRP SeaDoo WAKE 230hp PRO Teal blue.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1229711, finalPrice: 1229711, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo WAKE 230hp PRO Teal blue', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
+      { id: '15', name: 'Гидроцикл BRP SeaDoo Spark GTS 90hp Rental', img: 'BRP SeaDoo Spark GTS 90hp Rental.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 857666, finalPrice: 857666, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo Spark GTS 90hp Rental', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Россия', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
+      { id: '16', name: 'Гидроцикл BRP SeaDoo WAKE 230hp PRO Teal blue', img: 'BRP SeaDoo WAKE 230hp PRO Teal blue.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1229711, finalPrice: 1229711, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo WAKE 230hp PRO Teal blue', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
       { id: '17', name: 'Гидроцикл BRP SeaDoo GTI 130hp SE Black\\Mango', img: 'BRP SeaDoo GTI 130hp SE Black.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1049500, finalPrice: 1049500, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 130hp SE Black\\Mango', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
-      { id: '18', name: 'Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic', img: 'BRP SeaDoo GTI 155hp SE Long Blue Metallic.png', category: '2', with_this_product: ['2', '3', '4'], isSale: true, count: 10, price: 1100475, finalPrice: 1100475, saleEndDate: new Date(2023, 1, 30), isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 155hp SE Long Blue Metallic', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 300, isMain: true }] },
-      { id: '19', name: 'Гидроцикл BRP SeaDoo GTR 230hp X California green ', img: 'BRP SeaDoo GTR 230hp X California green.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp X California green', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
-      { id: '20', name: 'Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream', img: 'BRP SeaDoo GTR 230hp STD Black Gulfstream.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp STD Black / Gulfstream', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
-      { id: '21', name: 'Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal', img: 'BRP SeaDoo GTX 300hp LTD Liquid Metal.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1543000, finalPrice: 1543000, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTX 300hp LTD Liquid Metal', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 300, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
+      { id: '18', name: 'Гидроцикл BRP SeaDoo GTI 155hp SE Long Blue Metallic', img: 'BRP SeaDoo GTI 155hp SE Long Blue Metallic.png', category: '2', with_this_product: ['2', '3', '4'], isSale: true, count: 10, price: 1100475, finalPrice: 1100474, saleEndDate: new Date(2023, 1, 30), isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTI 155hp SE Long Blue Metallic', isMain: true }, { name: 'brand', value: 'Spark 3', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 300, isMain: true }] },
+      { id: '19', name: 'Гидроцикл BRP SeaDoo GTR 230hp X California green ', img: 'BRP SeaDoo GTR 230hp X California green.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp X California green', isMain: true }, { name: 'brand', value: 'Spark 3', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
+      { id: '20', name: 'Гидроцикл BRP SeaDoo GTR 230hp STD Black / Gulfstream', img: 'BRP SeaDoo GTR 230hp STD Black Gulfstream.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 0, price: 1323700, finalPrice: 1323700, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'SeaDoo GTR 230hp STD Black / Gulfstream', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 130, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
+      { id: '21', name: 'Гидроцикл BRP SeaDoo GTX 300hp LTD Liquid Metal', img: 'BRP SeaDoo GTX 300hp LTD Liquid Metal.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 1543000, finalPrice: 1543000, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo GTX 300hp LTD Liquid Metal', isMain: true }, { name: 'brand', value: 'Spark 2', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 300, isMain: true }, { name: 'enginePower', value: 300, isMain: true }, { name: 'highSpeed', value: 230, isMain: true }] },
       { id: '22', name: 'Гидроцикл BRP SeaDoo Spark 60hp 2 up', img: 'BRP SeaDoo Spark 60hp 2 up.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 732345, finalPrice: 732345, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: 'Sea-doo Spark 2', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 230, isMain: true }, { name: 'enginePower', value: 130, isMain: true }, { name: 'highSpeed', value: 90, isMain: true }] },
       { id: '23', name: 'Гидроцикл BRP SeaDoo Spark GTS 90hp Rental', img: 'BRP SeaDoo Spark GTS 90hp Rental.png', category: '2', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 857666, finalPrice: 857666, saleEndDate: null, isNew: false, parametrs: [{ name: 'model', value: 'SeaDoo Spark GTS 90hp Rental', isMain: true }, { name: 'brand', value: 'BRP', isMain: true }, { name: 'country', value: 'Канада', isMain: true }, { name: 'power', value: 90, isMain: true }, { name: 'enginePower', value: 90, isMain: true }, { name: 'highSpeed', value: 130, isMain: true }] },
       { id: '24', name: 'Мотор', img: 'motor-product.png', category: '8', with_this_product: ['2', '3', '4'], isSale: false, count: 10, price: 9800, finalPrice: 9800, saleEndDate: null, isNew: true, parametrs: [{ name: 'model', value: '', isMain: true }, { name: 'brand', value: '', isMain: true }, { name: 'country', value: '', isMain: true }] },
@@ -100,7 +100,6 @@ export const productsModule = {
       state.products.find(product => product.id === productMinus.id).count -= productMinus.count
     },
     setProductsByReq: (state, req) => {
-      
     }
   },
   actions: {
@@ -110,7 +109,13 @@ export const productsModule = {
           product.finalPrice = product.price * sales.find(sale => sale.categoryId === product.category).discount / 100
         }
         product.price > product.finalPrice ? product.isSale = true : product.isSale = false
+        Math.random() - 0.5 > 0
+          ? product.isDiler = true
+          : product.isDiler = false
         if (product.isSale) { product.saleEndDate = new Date(2023, 1, 30) }
+        Math.random() - 0.5 > 0
+          ? product.isHit = true
+          : product.isHit = false
         // product.price > product.finalPrice ? commit('setIsSale', { isSale: true, product: product }) : commit('setIsSale', { isSale: false, product: product })
         // if (product.saleEndDate >= new Date()) { commit('setIsSale', { isSale: false, product: product }) }
         const zeroNum = '000000'
@@ -170,21 +175,49 @@ export const productsModule = {
               break
             case 'power':
               if (product.parametrs.find(param => param.name === 'power')) {
-                product.parametrs.find(param => param.name === 'power').value === filter.value || filter.value === null
+                product.parametrs.find(param => param.name === 'power').value === filter.value || filter.value === null || filter.value === 'null'
                   ? isMatchP.push(true)
                   : isMatchP.push(false)
               }
               break
             case 'enginePower':
               if (product.parametrs.find(param => param.name === 'enginePower')) {
-                product.parametrs.find(param => param.name === 'enginePower').value === filter.value || filter.value === null
+                product.parametrs.find(param => param.name === 'enginePower').value === filter.value || filter.value === null || filter.value === 'null'
                   ? isMatchP.push(true)
                   : isMatchP.push(false)
               }
               break
             case 'highSpeed':
               if (product.parametrs.find(param => param.name === 'highSpeed')) {
-                product.parametrs.find(param => param.name === 'highSpeed').value === filter.value || filter.value === null
+                product.parametrs.find(param => param.name === 'highSpeed').value === filter.value || filter.value === null || filter.value === 'null'
+                  ? isMatchP.push(true)
+                  : isMatchP.push(false)
+              }
+              break
+            case 'isSale':
+              if (filter.value) {
+                product.isSale === filter.value
+                  ? isMatchP.push(true)
+                  : isMatchP.push(false)
+              }
+              break
+            case 'isNew':
+              if (filter.value) {
+                product.isNew === filter.value
+                  ? isMatchP.push(true)
+                  : isMatchP.push(false)
+              }
+              break
+            case 'isHit':
+              if (filter.value) {
+                product.isHit === filter.value
+                  ? isMatchP.push(true)
+                  : isMatchP.push(false)
+              }
+              break
+            case 'isDiler':
+              if (filter.value) {
+                product.isDiler === filter.value
                   ? isMatchP.push(true)
                   : isMatchP.push(false)
               }

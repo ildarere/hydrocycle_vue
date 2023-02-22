@@ -1,5 +1,5 @@
 <template >
-  <layout-page-vue>
+  <layout-page-vue >
     <bread-crumb-vue
       :category="category"
     ></bread-crumb-vue>

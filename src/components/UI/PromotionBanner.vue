@@ -107,6 +107,7 @@ export default {
     align-items: center;
     & > .product-img {
         height: 176px;
+        max-width: 260px;
     }
 }
 .product-name {

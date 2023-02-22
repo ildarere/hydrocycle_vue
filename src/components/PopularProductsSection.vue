@@ -4,8 +4,8 @@
       <nav class="navbar nav-bottom-line navbar-expand-lg navbar-expand-md navbar-light p-0">
         <div class="container-fluid p-0 w-100 h-100">
           <div class="nav-container">
-            <div v-for="category of categories" :key="category.id" class="">
-              <input type="radio" name="radio" :id="category.name + category.id" class="category"/>
+            <div v-for="(category, index) in categories" :key="category.id" class="">
+              <input type="radio" name="radio" :id="category.name + category.id" class="category" :checked="index === 0"/>
               <label :for="category.name + category.id" class="nav-item" @click="$emit('update', category.id); currentCategory = category">{{ category.name }}</label>
             </div>
           </div>
