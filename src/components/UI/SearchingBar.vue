@@ -1,12 +1,17 @@
 <template >
   <form action="" class="serching-form w-100">
-    <input type="text" class="serching-field" :placeholder="placeholder">
+    <input type="text" class="serching-field" :placeholder="placeholder" v-model="value">
     <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="magnifying-glass d-md-none" role="button"/>
-    <button class="serching-btn d-none d-md-block" >искать</button>
+    <button class="serching-btn d-none d-md-block" @click.prevent="$emit('search', value)">искать</button>
   </form>
 </template>
 <script>
 export default {
+  data () {
+    return {
+      value: ''
+    }
+  },
   props: {
     placeholder: {
       type: String,

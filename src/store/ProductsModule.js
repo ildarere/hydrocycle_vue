@@ -72,6 +72,9 @@ export const productsModule = {
     },
     getPage: (state) => {
       return state.page
+    },
+    getProductsByReq: (state) => (req) => {
+      return state.products
     }
   },
   mutations: {
@@ -79,7 +82,6 @@ export const productsModule = {
       state.pageProducts = products
     },
     setIsSale: (state, saleProduct) => () => {
-      console.log(saleProduct)
       state.products.find(saleProduct.product).isSale = saleProduct.isSale
     },
     setTotalPages: (state, totalPages) => {
@@ -96,6 +98,9 @@ export const productsModule = {
     },
     minusProduct: (state) => (productMinus) => {
       state.products.find(product => product.id === productMinus.id).count -= productMinus.count
+    },
+    setProductsByReq: (state, req) => {
+      
     }
   },
   actions: {
@@ -105,6 +110,7 @@ export const productsModule = {
           product.finalPrice = product.price * sales.find(sale => sale.categoryId === product.category).discount / 100
         }
         product.price > product.finalPrice ? product.isSale = true : product.isSale = false
+        if (product.isSale) { product.saleEndDate = new Date(2023, 1, 30) }
         // product.price > product.finalPrice ? commit('setIsSale', { isSale: true, product: product }) : commit('setIsSale', { isSale: false, product: product })
         // if (product.saleEndDate >= new Date()) { commit('setIsSale', { isSale: false, product: product }) }
         const zeroNum = '000000'
