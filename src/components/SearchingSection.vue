@@ -10,7 +10,7 @@
       </div>
         <div class="row mt">
           <form action="" class="serching-form w-100">
-            <input type="text" class="serching-field" :placeholder="placeholder" v-model="searchReq">
+            <input :type="type" class="serching-field" :placeholder="placeholder" v-model="searchReq">
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="magnifying-glass d-md-none" role="button"/>
             <button class="serching-btn d-none d-md-block" @click.prevent="$router.push({path:`/catalog/search`, query: {value: searchReq, type: searchVal[placeholder]}})">искать</button>
           </form>
@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       searchReq: '',
+      type: 'number',
       searchVal: {
         'Введите номер': 'number',
         'Введите марку': 'mark',
@@ -33,6 +34,11 @@ export default {
   methods: {
     setPlaceholder (event) {
       this.placeholder = event.target.value
+      if (this.searchVal[this.placeholder] === 'number') {
+        this.type = 'number'
+      } else {
+        this.type = 'text'
+      }
     }
   }
 }
