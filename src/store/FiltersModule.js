@@ -14,27 +14,27 @@ export const FiltersModule = {
       { id: '11', name: 'Категория', category: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'], type: null, expectedValue: null }
     ],
     filters: [
-      { id: '1', value: true, filter: 'isStock', name: 'В наличие', filterGroup: '1' },
-      { id: '2', value: true, filter: 'isOrder', name: 'Под заказ', filterGroup: '1' },
-      { id: '3', value: true, filter: 'isAll', name: 'Все', filterGroup: '2' },
-      { id: '4', value: false, filter: 'isNew', name: 'Новинки', filterGroup: '2' },
-      { id: '5', value: false, filter: 'isSale', name: 'Акции', filterGroup: '2' },
-      { id: '6', value: 0, filter: 'priceBottom', name: 'Цена', filterGroup: '3' },
-      { id: '22', value: 2000000, filter: 'priceTop', name: 'Цена', filterGroup: '3' },
-      { id: '7', value: null, filter: 'power', name: 'Мощность, л.с.', filterGroup: '4' },
-      { id: '8', value: null, filter: 'enginePower', name: 'Мощность двигателя, л.с.', filterGroup: '5' },
-      { id: '9', value: null, filter: 'highSpeed', name: 'Макс. скорость', filterGroup: '6' },
-      { id: '10', value: false, filter: 'brands', name: 'BRP', filterGroup: '7' },
-      { id: '11', value: false, filter: 'brands', name: 'Spark 2', filterGroup: '7' },
-      { id: '12', value: false, filter: 'brands', name: 'Spark 3', filterGroup: '7' },
-      { id: '13', value: false, filter: 'models', name: 'Sea-doo Spark 2', filterGroup: '8' },
-      { id: '17', value: false, filter: 'isSale', name: 'SALE', filterGroup: '9' },
-      { id: '18', value: false, filter: 'isNew', name: 'NEW', filterGroup: '9' },
-      { id: '19', value: false, filter: 'isHit', name: 'HIT', filterGroup: '9' },
-      { id: '20', value: false, filter: 'isDiler', name: 'ДИЛЕР', filterGroup: '9' },
-      { id: '21', value: false, filter: 'country', name: 'Россия', filterGroup: '10' },
-      { id: '24', value: false, filter: 'country', name: 'Канада', filterGroup: '10' },
-      { id: '23', value: {}, filter: 'category', name: 'Категория', filterGroup: '11' }
+      { id: '1', value: true, filter: 'isStock', name: 'В наличие', filterGroup: '1', controll: [] },
+      { id: '2', value: true, filter: 'isOrder', name: 'Под заказ', filterGroup: '1', controll: [] },
+      { id: '3', value: true, filter: 'isAll', name: 'Все', filterGroup: '2', controll: ['4', '5'] },
+      { id: '4', value: false, filter: 'isNew', name: 'Новинки', filterGroup: '2', controll: ['3'] },
+      { id: '5', value: false, filter: 'isSale', name: 'Акции', filterGroup: '2', controll: ['3'] },
+      { id: '6', value: 0, filter: 'priceBottom', name: 'Цена', filterGroup: '3', controll: [] },
+      { id: '22', value: 2000000, filter: 'priceTop', name: 'Цена', filterGroup: '3', controll: [] },
+      { id: '7', value: null, filter: 'power', name: 'Мощность, л.с.', filterGroup: '4', controll: [] },
+      { id: '8', value: null, filter: 'enginePower', name: 'Мощность двигателя, л.с.', filterGroup: '5', controll: [] },
+      { id: '9', value: null, filter: 'highSpeed', name: 'Макс. скорость', filterGroup: '6', controll: [] },
+      { id: '10', value: false, filter: 'brands', name: 'BRP', filterGroup: '7', controll: [] },
+      { id: '11', value: false, filter: 'brands', name: 'Spark 2', filterGroup: '7', controll: [] },
+      { id: '12', value: false, filter: 'brands', name: 'Spark 3', filterGroup: '7', controll: [] },
+      { id: '13', value: false, filter: 'models', name: 'Sea-doo Spark 2', filterGroup: '8', controll: [] },
+      { id: '17', value: false, filter: 'isSale', name: 'SALE', filterGroup: '9', controll: [] },
+      { id: '18', value: false, filter: 'isNew', name: 'NEW', filterGroup: '9', controll: [] },
+      { id: '19', value: false, filter: 'isHit', name: 'HIT', filterGroup: '9', controll: [] },
+      { id: '20', value: false, filter: 'isDiler', name: 'ДИЛЕР', filterGroup: '9', controll: [] },
+      { id: '21', value: false, filter: 'country', name: 'Россия', filterGroup: '10', controll: [] },
+      { id: '24', value: false, filter: 'country', name: 'Канада', filterGroup: '10', controll: [] },
+      { id: '23', value: {}, filter: 'category', name: 'Категория', filterGroup: '11', controll: [] }
     ],
     pageGroups: [],
     pageFilters: [],
@@ -95,6 +95,12 @@ export const FiltersModule = {
     updateFilter: ({ state }, newFilter) => {
       state.pageFilters.forEach((filter, i) => {
         if (filter.id === newFilter.id) { state.pageFilters[i] = newFilter }
+        if (newFilter.controll.length > 0 && newFilter.value) {
+          for (const filterId of newFilter.controll) {
+            console.log(filterId)
+            state.pageFilters.find(filter => filter.id === filterId).value = false
+          }
+        }
       })
     }
   },
