@@ -183,6 +183,8 @@ export default {
 .nav-container {
   height: 45px;
   display: flex;
+  overflow-x: auto;
+
 }
 .nav-item {
   margin-right: 50px;
